@@ -1,0 +1,4 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Introspect.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPNativeCoroutinesCombine.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPNativeCoroutinesCore.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework

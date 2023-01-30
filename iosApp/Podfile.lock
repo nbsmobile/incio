@@ -1,0 +1,35 @@
+PODS:
+  - Introspect (0.1.4)
+  - KMPNativeCoroutinesCombine (0.13.1):
+    - KMPNativeCoroutinesCore (= 0.13.1)
+  - KMPNativeCoroutinesCore (0.13.1)
+  - netfox (1.21.0)
+  - shared (1.0)
+
+DEPENDENCIES:
+  - Introspect
+  - KMPNativeCoroutinesCombine (= 0.13.1)
+  - netfox
+  - shared (from `../shared`)
+
+SPEC REPOS:
+  trunk:
+    - Introspect
+    - KMPNativeCoroutinesCombine
+    - KMPNativeCoroutinesCore
+    - netfox
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  Introspect: b62c4dd2063072327c21d618ef2bedc3c87bc366
+  KMPNativeCoroutinesCombine: faa5064e9467f2fc406780de9171d0c9bb8704f5
+  KMPNativeCoroutinesCore: af011852578ab7abdad5e5c17a25d272efb3516b
+  netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
+  shared: 441b155cbf4e9bce4e41fdd37828d970befe7c91
+
+PODFILE CHECKSUM: da853e14d12abe8d890fdc4941b8288026d292e6
+
+COCOAPODS: 1.11.3

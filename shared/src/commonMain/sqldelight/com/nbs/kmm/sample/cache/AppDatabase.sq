@@ -1,0 +1,40 @@
+CREATE TABLE RocketLaunchEntity (
+    flightNumber    INTEGER NOT NULL,
+    missionName     TEXT    NOT NULL,
+    launchYear      INTEGER AS Int NOT NULL DEFAULT 0,
+    rocketId        TEXT    NOT NULL,
+    details         TEXT,
+    launchSuccess   INTEGER AS Boolean DEFAULT NULL,
+    launchDateUTC   TEXT    NOT NULL,
+    missionPatchUrl TEXT,
+    articleUrl      TEXT
+);
+
+CREATE TABLE RocketEntity (
+    id   TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL
+);
+
+insertRocketLaunch:
+INSERT INTO RocketLaunchEntity(flightNumber, missionName, launchYear, rocketId, details, launchSuccess, launchDateUTC, missionPatchUrl, articleUrl)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+insertRocket:
+INSERT INTO RocketEntity(id, name, type)
+VALUES(?, ?, ?);
+
+removeAllRocketLaunches:
+DELETE FROM RocketLaunchEntity;
+
+removeAllRockets:
+DELETE FROM RocketEntity;
+
+selectRocketById:
+SELECT * FROM RocketEntity
+WHERE id = ?;
+
+selectAllRocketLaunchesInfo:
+SELECT RocketLaunchEntity.*, RocketEntity.*
+FROM RocketLaunchEntity
+LEFT JOIN RocketEntity ON RocketEntity.id == RocketLaunchEntity.rocketId;

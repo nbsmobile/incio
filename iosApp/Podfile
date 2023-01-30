@@ -1,0 +1,17 @@
+platform :ios, '14.0'
+
+def general_pod
+  pod 'netfox'
+  pod 'shared', :path => '../shared'
+  pod 'KMPNativeCoroutinesCombine', '0.13.1'
+end
+
+def ui_pod
+  pod 'Introspect'
+end
+
+target 'iosApp' do
+  use_frameworks!
+  general_pod
+  ui_pod
+end

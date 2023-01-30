@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NBS Kmm Android Sample</string>
+    <string name="error_no_connection">Tidak ada koneksi internet, mohon cek internet Anda</string>
+    <string name="error_unable_to_connect">Mohon maaf, saat ini aplikasi tidak bisa terhubung ke server</string>
+</resources>

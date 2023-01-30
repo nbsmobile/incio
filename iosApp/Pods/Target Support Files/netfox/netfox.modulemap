@@ -1,0 +1,6 @@
+framework module netfox {
+  umbrella header "netfox-umbrella.h"
+
+  export *
+  module * { export * }
+}
