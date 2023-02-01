@@ -60,7 +60,8 @@ struct LoginView: WrappedView {
 
         VStack(spacing: 16) {
           Button {
-
+            guard let viewController = holder.viewController else { return }
+            navigator.navigateToStory(window: viewController.view.window)
           } label: {
             Text("Masuk")
               .font(.callout)
@@ -75,7 +76,7 @@ struct LoginView: WrappedView {
           Text("Belum punya akun?")
             .font(.callout)
             .bold()
-            .foregroundColor(.black)
+            .foregroundColor(.gray)
 
           Button {
             guard let viewController = holder.viewController else { return }

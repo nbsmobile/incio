@@ -30,6 +30,12 @@
 		9A628B4E298A25C300A7E0D3 /* MembershipNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B4D298A25C300A7E0D3 /* MembershipNavigator.swift */; };
 		9A628B50298A25FA00A7E0D3 /* MembershipAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B4F298A25FA00A7E0D3 /* MembershipAssembler.swift */; };
 		9A628B52298A620700A7E0D3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B51298A620700A7E0D3 /* RegisterView.swift */; };
+		9A628B55298A744600A7E0D3 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B54298A744600A7E0D3 /* StoryView.swift */; };
+		9A628B5A298A747900A7E0D3 /* AddStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B59298A747900A7E0D3 /* AddStoryView.swift */; };
+		9A628B5C298A799100A7E0D3 /* StoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5B298A799100A7E0D3 /* StoryAssembler.swift */; };
+		9A628B5E298A79A200A7E0D3 /* StoryNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5D298A79A200A7E0D3 /* StoryNavigator.swift */; };
+		9A628B60298A8DED00A7E0D3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5F298A8DED00A7E0D3 /* UIViewController.swift */; };
+		9A628B65298B226400A7E0D3 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B64298B226400A7E0D3 /* WebImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,12 @@
 		9A628B4D298A25C300A7E0D3 /* MembershipNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipNavigator.swift; sourceTree = "<group>"; };
 		9A628B4F298A25FA00A7E0D3 /* MembershipAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipAssembler.swift; sourceTree = "<group>"; };
 		9A628B51298A620700A7E0D3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		9A628B54298A744600A7E0D3 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		9A628B59298A747900A7E0D3 /* AddStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryView.swift; sourceTree = "<group>"; };
+		9A628B5B298A799100A7E0D3 /* StoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAssembler.swift; sourceTree = "<group>"; };
+		9A628B5D298A79A200A7E0D3 /* StoryNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNavigator.swift; sourceTree = "<group>"; };
+		9A628B5F298A8DED00A7E0D3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9A628B64298B226400A7E0D3 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
 		FE7477F478B23F7908664A22 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +136,7 @@
 				91000FB529877F3100DD8074 /* AppAssembler.swift */,
 				91000FB729877F9300DD8074 /* FeatureAssembler.swift */,
 				9A628B4F298A25FA00A7E0D3 /* MembershipAssembler.swift */,
+				9A628B5B298A799100A7E0D3 /* StoryAssembler.swift */,
 			);
 			path = Dependency;
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 				91000FB229877EFF00DD8074 /* Main */,
 				91000FB329877F0B00DD8074 /* Resources */,
 				91000FB429877F1300DD8074 /* Utils */,
+				9A628B63298B225300A7E0D3 /* Views */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -147,6 +161,7 @@
 				91000FBD2987804C00DD8074 /* UIScreen.swift */,
 				91000FB929877FE700DD8074 /* View.swift */,
 				91000FC42987811E00DD8074 /* Error.swift */,
+				9A628B5F298A8DED00A7E0D3 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -154,6 +169,7 @@
 		91000FB129877EF300DD8074 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9A628B53298A741800A7E0D3 /* Story */,
 				9A628B47298A1F3200A7E0D3 /* Membership */,
 				91000FCD298781EF00DD8074 /* RocketLaunch */,
 			);
@@ -181,11 +197,11 @@
 		91000FB429877F1300DD8074 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				91000FC02987808F00DD8074 /* ViewWrapper.swift */,
-				91000FC2298780EE00DD8074 /* LoadingModifier.swift */,
-				91000FD7298788E400DD8074 /* DataState.swift */,
 				91000FD9298789CC00DD8074 /* ActivityIndicator.swift */,
+				91000FD7298788E400DD8074 /* DataState.swift */,
+				91000FC2298780EE00DD8074 /* LoadingModifier.swift */,
 				91BD2FE1298A163F00EC8A2F /* SessionManager.swift */,
+				91000FC02987808F00DD8074 /* ViewWrapper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +280,48 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A628B53298A741800A7E0D3 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				9A628B56298A745100A7E0D3 /* Navigator */,
+				9A628B57298A745800A7E0D3 /* View */,
+				9A628B58298A745E00A7E0D3 /* ViewModel */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		9A628B56298A745100A7E0D3 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				9A628B5D298A79A200A7E0D3 /* StoryNavigator.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		9A628B57298A745800A7E0D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A628B54298A744600A7E0D3 /* StoryView.swift */,
+				9A628B59298A747900A7E0D3 /* AddStoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A628B58298A745E00A7E0D3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A628B63298B225300A7E0D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A628B64298B226400A7E0D3 /* WebImage.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E68E62186D45C3E22C8BB885 /* Pods */ = {
@@ -391,13 +449,18 @@
 			files = (
 				91000FC12987808F00DD8074 /* ViewWrapper.swift in Sources */,
 				9A628B52298A620700A7E0D3 /* RegisterView.swift in Sources */,
+				9A628B65298B226400A7E0D3 /* WebImage.swift in Sources */,
+				9A628B5A298A747900A7E0D3 /* AddStoryView.swift in Sources */,
 				91000FDA298789CC00DD8074 /* ActivityIndicator.swift in Sources */,
+				9A628B60298A8DED00A7E0D3 /* UIViewController.swift in Sources */,
+				9A628B55298A744600A7E0D3 /* StoryView.swift in Sources */,
 				91000FC3298780EE00DD8074 /* LoadingModifier.swift in Sources */,
 				91000FCC298781E500DD8074 /* RocketLaunchView.swift in Sources */,
 				9A628B50298A25FA00A7E0D3 /* MembershipAssembler.swift in Sources */,
 				91000FD12987823000DD8074 /* AppDelegate.swift in Sources */,
 				91000FCF2987820900DD8074 /* RocketLaunchViewModel.swift in Sources */,
 				91000FBA29877FE700DD8074 /* View.swift in Sources */,
+				9A628B5E298A79A200A7E0D3 /* StoryNavigator.swift in Sources */,
 				9A628B4E298A25C300A7E0D3 /* MembershipNavigator.swift in Sources */,
 				91000FD6298782C300DD8074 /* RocketLaunchNavigator.swift in Sources */,
 				91000FB629877F3100DD8074 /* AppAssembler.swift in Sources */,
@@ -405,6 +468,7 @@
 				9A628B4C298A1F6400A7E0D3 /* LoginView.swift in Sources */,
 				91000FD8298788E400DD8074 /* DataState.swift in Sources */,
 				91000FB829877F9300DD8074 /* FeatureAssembler.swift in Sources */,
+				9A628B5C298A799100A7E0D3 /* StoryAssembler.swift in Sources */,
 				91000FBE2987804C00DD8074 /* UIScreen.swift in Sources */,
 				91000FC52987811E00DD8074 /* Error.swift in Sources */,
 				91BD2FE2298A163F00EC8A2F /* SessionManager.swift in Sources */,

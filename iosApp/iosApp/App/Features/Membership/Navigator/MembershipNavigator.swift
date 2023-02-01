@@ -11,6 +11,7 @@ import UIKit
 protocol MembershipNavigator {
   func navigateToLogin(window: UIWindow?)
   func navigateToRegister(from viewController: UIViewController)
+  func navigateToStory(window: UIWindow?)
 }
 
 struct DefaultMembershipNavigator: MembershipNavigator {
@@ -28,5 +29,10 @@ struct DefaultMembershipNavigator: MembershipNavigator {
   func navigateToRegister(from viewController: UIViewController) {
     let view: RegisterView = assembler.resolve()
     viewController.navigationController?.pushViewController(view.viewController, animated: true)
+  }
+
+  func navigateToStory(window: UIWindow?) {
+    let navigator: StoryNavigator = assembler.resolve()
+    navigator.navigateToStory(window: window)
   }
 }
