@@ -7,7 +7,6 @@
 
 import UIKit
 import netfox
-import SDWebImageSwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

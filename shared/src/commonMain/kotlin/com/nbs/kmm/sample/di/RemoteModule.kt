@@ -26,6 +26,7 @@ val remoteModule = module {
             baseUrl = get(named(BASE_URL)),
             kermitLogger = get(),
             isDebugMode = getPlatform().isDebugMode(),
+            accountManager = get(),
             httpClientProvider = getPlatform().getHttpClientEngine()
         )
     }

@@ -4,6 +4,7 @@ package com.nbs.kmm.sample.base
 
 import com.nbs.kmm.sample.di.databaseModule
 import com.nbs.kmm.sample.di.feature.rocketLaunchModule
+import com.nbs.kmm.sample.di.feature.storyModule
 import com.nbs.kmm.sample.di.preferenceModule
 import com.nbs.kmm.sample.di.remoteModule
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -28,7 +29,8 @@ object CoreApplication {
             remoteModule,
             preferenceModule,
             databaseModule,
-            rocketLaunchModule
+            rocketLaunchModule,
+            storyModule
         )
     }
 }

@@ -25,6 +25,7 @@
 		91000FD6298782C300DD8074 /* RocketLaunchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD5298782C300DD8074 /* RocketLaunchNavigator.swift */; };
 		91000FD8298788E400DD8074 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD7298788E400DD8074 /* DataState.swift */; };
 		91000FDA298789CC00DD8074 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD9298789CC00DD8074 /* ActivityIndicator.swift */; };
+		91BD2FE2298A163F00EC8A2F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD2FE1298A163F00EC8A2F /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		91000FD5298782C300DD8074 /* RocketLaunchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchNavigator.swift; sourceTree = "<group>"; };
 		91000FD7298788E400DD8074 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		91000FD9298789CC00DD8074 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		91BD2FE1298A163F00EC8A2F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		FE7477F478B23F7908664A22 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 				91000FC2298780EE00DD8074 /* LoadingModifier.swift */,
 				91000FD7298788E400DD8074 /* DataState.swift */,
 				91000FD9298789CC00DD8074 /* ActivityIndicator.swift */,
+				91BD2FE1298A163F00EC8A2F /* SessionManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				91000FB829877F9300DD8074 /* FeatureAssembler.swift in Sources */,
 				91000FBE2987804C00DD8074 /* UIScreen.swift in Sources */,
 				91000FC52987811E00DD8074 /* Error.swift in Sources */,
+				91BD2FE2298A163F00EC8A2F /* SessionManager.swift in Sources */,
 				91000FBC2987802000DD8074 /* ObservableObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,8 +488,10 @@
 			baseConfigurationReference = 73CCBF082B03E4B3B7EE6474 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = SM8JGRFPQU;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/App/Resources/Plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -508,10 +514,6 @@
 					"-framework",
 					"\"KMPNativeCoroutinesCore\"",
 					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"SDWebImageSwiftUI\"",
-					"-framework",
 					"\"Shared\"",
 					"-framework",
 					"\"netfox\"",
@@ -521,8 +523,9 @@
 					"\"SwiftUI\"",
 					"-lsqlite3",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbskmm.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -533,8 +536,10 @@
 			baseConfigurationReference = FE7477F478B23F7908664A22 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_TEAM = SM8JGRFPQU;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/App/Resources/Plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -557,10 +562,6 @@
 					"-framework",
 					"\"KMPNativeCoroutinesCore\"",
 					"-framework",
-					"\"SDWebImage\"",
-					"-framework",
-					"\"SDWebImageSwiftUI\"",
-					"-framework",
 					"\"Shared\"",
 					"-framework",
 					"\"netfox\"",
@@ -570,8 +571,9 @@
 					"\"SwiftUI\"",
 					"-lsqlite3",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbskmm.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
