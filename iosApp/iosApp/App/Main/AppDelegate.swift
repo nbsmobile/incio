@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   private let assembler = AppAssembler()
 
-  private lazy var navigator: RocketLaunchNavigator = {
+  private lazy var navigator: MembershipNavigator = {
     assembler.resolve()
   }()
 
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     setupEnvironment()
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    navigator.navigateToRocketLaunch(window: window)
+    navigator.navigateToLogin(window: window)
     window?.makeKeyAndVisible()
 
     return true

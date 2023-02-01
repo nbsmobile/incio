@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Assembler: FeatureAssembler {}
+protocol Assembler: FeatureAssembler, MembershipAssembler {}
 
 class AppAssembler: Assembler {}
 
