@@ -35,7 +35,8 @@
 		9A628B5C298A799100A7E0D3 /* StoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5B298A799100A7E0D3 /* StoryAssembler.swift */; };
 		9A628B5E298A79A200A7E0D3 /* StoryNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5D298A79A200A7E0D3 /* StoryNavigator.swift */; };
 		9A628B60298A8DED00A7E0D3 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B5F298A8DED00A7E0D3 /* UIViewController.swift */; };
-		9A628B65298B226400A7E0D3 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B64298B226400A7E0D3 /* WebImage.swift */; };
+		9A628B65298B226400A7E0D3 /* CustomWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B64298B226400A7E0D3 /* CustomWebImage.swift */; };
+		9A628B67298B27EA00A7E0D3 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B66298B27EA00A7E0D3 /* StoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +71,8 @@
 		9A628B5B298A799100A7E0D3 /* StoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAssembler.swift; sourceTree = "<group>"; };
 		9A628B5D298A79A200A7E0D3 /* StoryNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNavigator.swift; sourceTree = "<group>"; };
 		9A628B5F298A8DED00A7E0D3 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		9A628B64298B226400A7E0D3 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
+		9A628B64298B226400A7E0D3 /* CustomWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebImage.swift; sourceTree = "<group>"; };
+		9A628B66298B27EA00A7E0D3 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		FE7477F478B23F7908664A22 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +314,7 @@
 		9A628B58298A745E00A7E0D3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9A628B66298B27EA00A7E0D3 /* StoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,7 +322,7 @@
 		9A628B63298B225300A7E0D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A628B64298B226400A7E0D3 /* WebImage.swift */,
+				9A628B64298B226400A7E0D3 /* CustomWebImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,7 +452,7 @@
 			files = (
 				91000FC12987808F00DD8074 /* ViewWrapper.swift in Sources */,
 				9A628B52298A620700A7E0D3 /* RegisterView.swift in Sources */,
-				9A628B65298B226400A7E0D3 /* WebImage.swift in Sources */,
+				9A628B65298B226400A7E0D3 /* CustomWebImage.swift in Sources */,
 				9A628B5A298A747900A7E0D3 /* AddStoryView.swift in Sources */,
 				91000FDA298789CC00DD8074 /* ActivityIndicator.swift in Sources */,
 				9A628B60298A8DED00A7E0D3 /* UIViewController.swift in Sources */,
@@ -465,6 +468,7 @@
 				91000FD6298782C300DD8074 /* RocketLaunchNavigator.swift in Sources */,
 				91000FB629877F3100DD8074 /* AppAssembler.swift in Sources */,
 				91000FC82987819300DD8074 /* Koin.swift in Sources */,
+				9A628B67298B27EA00A7E0D3 /* StoryViewModel.swift in Sources */,
 				9A628B4C298A1F6400A7E0D3 /* LoginView.swift in Sources */,
 				91000FD8298788E400DD8074 /* DataState.swift in Sources */,
 				91000FB829877F9300DD8074 /* FeatureAssembler.swift in Sources */,
