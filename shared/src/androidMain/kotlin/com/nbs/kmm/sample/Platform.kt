@@ -36,8 +36,8 @@ class AndroidPlatform : Platform, KoinComponent {
         return BuildConfig.DEBUG
     }
 
-    override fun getDatabaseDriver(): SqlDriver {
-        return AndroidDatabaseDriverFactory(context).createDriver()
+    override fun getDatabaseDriver(dbName: String, passphrase: String): SqlDriver {
+        return AndroidDatabaseDriverFactory(context, dbName, passphrase).createDriver()
     }
 
     override fun getEncryptedPreference(preferenceName: String): Settings {

@@ -32,6 +32,7 @@ buildkonfig {
     // default config is required
     defaultConfigs {
         buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev/v1")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com/v4")
     }
 }
 
@@ -100,6 +101,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation("com.github.chuckerteam.chucker:library:3.5.2")
                 implementation("androidx.security:security-crypto:1.0.0")
+                implementation("net.zetetic:android-database-sqlcipher:4.5.3")
             }
         }
         val androidTest by getting {

@@ -10,7 +10,9 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 const val BASE_URL = "base_url"
+const val BASE_URL_SPACEX = "base_url_spacex"
 const val NETWORK_CLIENT = "shared_network_client"
+const val NETWORK_CLIENT_SPACEX = "shared_network_client_spacex"
 
 @ExperimentalSerializationApi
 val remoteModule = module {
@@ -20,10 +22,23 @@ val remoteModule = module {
 
     single(named(BASE_URL)) { NbsKmmSharedPublicConfig.BASE_URL }
 
+    single(named(BASE_URL_SPACEX)) { NbsKmmSharedPublicConfig.BASE_URL_SPACEX }
+
     single(named(NETWORK_CLIENT)) {
         setupHttpClient(
             json = get(),
             baseUrl = get(named(BASE_URL)),
+            kermitLogger = get(),
+            isDebugMode = getPlatform().isDebugMode(),
+            accountManager = get(),
+            httpClientProvider = getPlatform().getHttpClientEngine()
+        )
+    }
+
+    single(named(NETWORK_CLIENT_SPACEX)) {
+        setupHttpClient(
+            json = get(),
+            baseUrl = get(named(BASE_URL_SPACEX)),
             kermitLogger = get(),
             isDebugMode = getPlatform().isDebugMode(),
             accountManager = get(),
