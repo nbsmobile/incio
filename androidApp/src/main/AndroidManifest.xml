@@ -41,7 +41,6 @@
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,11 +49,14 @@
             android:name=".presentation.main.MainActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
+
         <activity
-            android:name=".ComposeActivity"
+            android:name=".sample.preference.PreferenceDemoActivity"
             android:exported="false">
-
         </activity>
-    </application>
 
-</manifest>
+        <activity
+            android:name=".sample.rocketlaunch.RocketLaunchActivity"
+            android:exported="false" />
+    </application>
+</manifest> 

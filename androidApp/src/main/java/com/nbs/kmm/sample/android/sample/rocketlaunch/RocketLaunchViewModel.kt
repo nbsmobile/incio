@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.rocketlaunch
+package com.nbs.kmm.sample.android.sample.rocketlaunch
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

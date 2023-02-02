@@ -3,9 +3,23 @@ package com.nbs.kmm.sample.cache
 import android.content.Context
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import com.squareup.sqldelight.db.SqlDriver
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 
-class AndroidDatabaseDriverFactory(private val context: Context) : DatabaseDriverFactory {
+class AndroidDatabaseDriverFactory(
+    private val context: Context,
+    private val dbName: String,
+    private val passphrase: String
+) : DatabaseDriverFactory {
     override fun createDriver(): SqlDriver {
-        return AndroidSqliteDriver(AppDatabase.Schema, context, "test.db")
+        val passPhrase = SQLiteDatabase.getBytes(passphrase.toCharArray())
+        val factory = SupportFactory(passPhrase)
+
+        return AndroidSqliteDriver(
+            AppDatabase.Schema,
+            context,
+            dbName,
+            factory = factory
+        )
     }
 }
