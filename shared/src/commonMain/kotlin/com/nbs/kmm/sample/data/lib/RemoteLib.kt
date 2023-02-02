@@ -35,6 +35,7 @@ fun setupJson() = Json {
 fun setupHttpClient(
     json: Json,
     baseUrl: String,
+    apiVersion: String,
     kermitLogger: Logger,
     isDebugMode: Boolean = true,
     accountManager: AccountManager,
@@ -63,7 +64,7 @@ fun setupHttpClient(
                 this.user
                 protocol = URLProtocol.HTTPS
 
-                appendPathSegments("v1/")
+                appendPathSegments(apiVersion)
             }
         }
 
