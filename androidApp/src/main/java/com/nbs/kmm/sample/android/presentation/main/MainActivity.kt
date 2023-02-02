@@ -14,14 +14,22 @@ class MainActivity : SampleBaseActivity<ActivityMainBinding>() {
         }
     }
 
-    override fun getViewBinding()= ActivityMainBinding.inflate(layoutInflater)
+    private val storyAdapter by lazy {
+        StoryAdapter {}
+    }
+
+    override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
     override fun initIntent() {}
 
-    override fun initUI() {}
+    override fun initUI() {
+        with(binding) {
+            rvStory.adapter = storyAdapter
+        }
+    }
 
     override fun initAction() {
-        with(binding){
+        with(binding) {
             layoutToolbar.btnAddStory.setOnClickListener {
                 PostStoryActivity.start(this@MainActivity)
             }
