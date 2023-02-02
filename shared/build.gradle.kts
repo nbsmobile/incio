@@ -99,6 +99,7 @@ kotlin {
                 implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation("com.github.chuckerteam.chucker:library:3.5.2")
+                implementation("androidx.security:security-crypto:1.0.0")
             }
         }
         val androidTest by getting {

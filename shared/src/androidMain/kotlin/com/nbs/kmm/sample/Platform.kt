@@ -1,8 +1,12 @@
 package com.nbs.kmm.sample
 
 import android.content.Context
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.nbs.kmm.sample.cache.AndroidDatabaseDriverFactory
+import com.russhwolf.settings.Settings
+import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.db.SqlDriver
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
@@ -34,6 +38,18 @@ class AndroidPlatform : Platform, KoinComponent {
 
     override fun getDatabaseDriver(): SqlDriver {
         return AndroidDatabaseDriverFactory(context).createDriver()
+    }
+
+    override fun getEncryptedPreference(preferenceName: String): Settings {
+        return SharedPreferencesSettings(
+            delegate = EncryptedSharedPreferences.create(
+                preferenceName,
+                MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+                context,
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        )
     }
 }
 
