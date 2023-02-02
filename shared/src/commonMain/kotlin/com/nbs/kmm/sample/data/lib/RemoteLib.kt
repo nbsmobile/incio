@@ -4,6 +4,8 @@ import co.touchlab.kermit.Logger
 import co.touchlab.kermit.LoggerConfig
 import com.nbs.kmm.sample.data.base.ApiException
 import com.nbs.kmm.sample.domain.account.AccountManager
+import com.nbs.kmm.sample.getPlatform
+import com.nbs.kmm.sample.utils.logging
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.compression.*
@@ -54,6 +56,7 @@ fun setupHttpClient(
         install(SessionAuthenticator())
 
         defaultRequest {
+            getPlatform().getRequestHash()
             host = baseUrl
 
             url {

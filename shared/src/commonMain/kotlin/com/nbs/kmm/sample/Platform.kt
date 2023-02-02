@@ -9,8 +9,8 @@ interface Platform {
     fun getHttpClientEngine(): HttpClient
     fun isDebugMode(): Boolean
     fun getDatabaseDriver(dbName: String, passphrase: String) : SqlDriver
-
     fun getEncryptedPreference(preferenceName: String): Settings
+    fun getRequestHash(): String
 }
 
 expect fun getPlatform(): Platform
