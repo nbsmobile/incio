@@ -10,11 +10,20 @@ import SwiftUI
 
 struct RegisterView: WrappedView {
   var holder: WrapperHolder
+  var navigator: MembershipNavigator
+
+  @StateObject var viewModel: MembershipViewModel
 
   @State var usernameValue = ""
   @State var emailValue = ""
   @State var passwordValue = ""
   @State var confirmPasswordValue = ""
+
+  init(holder: WrapperHolder, navigator: MembershipNavigator, viewModel: MembershipViewModel) {
+    self.holder = holder
+    self.navigator = navigator
+    self._viewModel = StateObject(wrappedValue: viewModel)
+  }
 
   var body: some View {
     VStack {
@@ -90,7 +99,7 @@ struct RegisterView: WrappedView {
         Spacer()
 
         Button {
-
+          viewModel.doRegister(registerParam: .init(name: "Abdhikun", email: "abdhi@nusantarabetastudio.com", password: "Abdhi2022!"))
         } label: {
           Text("Daftar")
             .font(.callout)
@@ -105,12 +114,25 @@ struct RegisterView: WrappedView {
       .padding(16)
       .padding(.vertical, 16)
     }
+    .dataState(
+      viewModel.$register,
+      onSuccess: { data in
+        guard let viewController = holder.viewController else { return }
+        viewController.navigationController?.popToRootViewController(animated: true)
+      },
+      onLoading: { state in
+
+      },
+      onFailed: { error in
+        print("Error: \(error.localizedDescription)")
+      }
+    )
   }
 }
 
 struct RegisterView_Previews: PreviewProvider {
   static var previews: some View {
     let assembler = AppAssembler()
-    RegisterView(holder: assembler.resolve())
+    RegisterView(holder: assembler.resolve(), navigator: assembler.resolve(), viewModel: assembler.resolve())
   }
 }

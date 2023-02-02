@@ -2,6 +2,7 @@ package com.nbs.kmm.sample.di.ios
 
 import com.nbs.kmm.sample.base.CoreApplication
 import com.nbs.kmm.sample.data.preference.PreferenceManager
+import com.nbs.kmm.sample.domain.membership.MembershipUseCase
 import com.nbs.kmm.sample.domain.rocketlaunch.RocketLaunchUseCase
 import com.nbs.kmm.sample.domain.story.StoryUseCase
 import org.koin.core.Koin
@@ -18,4 +19,7 @@ val Koin.preferenceManager: PreferenceManager
     get() = get()
 
 val Koin.storyUseCase: StoryUseCase
+    get() = get()
+
+val Koin.membershipUseCase: MembershipUseCase
     get() = get()

@@ -10,8 +10,11 @@ import Foundation
 
 protocol MembershipAssembler {
   func resolve() -> MembershipNavigator
+
   func resolve() -> LoginView
   func resolve() -> RegisterView
+
+  func resolve() -> MembershipViewModel
 }
 
 extension MembershipAssembler where Self: Assembler {
@@ -20,10 +23,14 @@ extension MembershipAssembler where Self: Assembler {
   }
 
   func resolve() -> LoginView {
-    return LoginView(holder: resolve(), navigator: resolve())
+    return LoginView(holder: resolve(), navigator: resolve(), viewModel: resolve())
   }
 
   func resolve() -> RegisterView {
-    return RegisterView(holder: resolve())
+    return RegisterView(holder: resolve(), navigator: resolve(), viewModel: resolve())
+  }
+
+  func resolve() -> MembershipViewModel {
+    return MembershipViewModel()
   }
 }

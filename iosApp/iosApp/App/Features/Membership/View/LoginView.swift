@@ -12,8 +12,16 @@ struct LoginView: WrappedView {
   var holder: WrapperHolder
   var navigator: MembershipNavigator
 
+  @StateObject var viewModel: MembershipViewModel
+
   @State var emailValue = ""
   @State var passwordValue = ""
+
+  init(holder: WrapperHolder, navigator: MembershipNavigator, viewModel: MembershipViewModel) {
+    self.holder = holder
+    self.navigator = navigator
+    self._viewModel = StateObject(wrappedValue: viewModel)
+  }
 
   var body: some View {
     VStack {
@@ -60,8 +68,7 @@ struct LoginView: WrappedView {
 
         VStack(spacing: 16) {
           Button {
-            guard let viewController = holder.viewController else { return }
-            navigator.navigateToStory(window: viewController.view.window)
+            viewModel.doLogin(email: "abdhi@nusantarabetastudio.com", password: "Abdhi2022!")
           } label: {
             Text("Masuk")
               .font(.callout)
@@ -98,12 +105,25 @@ struct LoginView: WrappedView {
       .padding(16)
       .padding(.vertical, 16)
     }
+    .dataState(
+      viewModel.$login,
+      onSuccess: { data in
+        guard let viewController = holder.viewController else { return }
+        navigator.navigateToStory(window: viewController.view.window)
+      },
+      onLoading: { state in
+
+      },
+      onFailed: { error in
+        print("Error: \(error.localizedDescription)")
+      }
+    )
   }
 }
 
 struct LoginView_Previews: PreviewProvider {
   static var previews: some View {
     let assembler = AppAssembler()
-    LoginView(holder: assembler.resolve(), navigator: assembler.resolve())
+    LoginView(holder: assembler.resolve(), navigator: assembler.resolve(), viewModel: assembler.resolve())
   }
 }
