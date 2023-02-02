@@ -28,6 +28,7 @@ val remoteModule = module {
         setupHttpClient(
             json = get(),
             baseUrl = get(named(BASE_URL)),
+            apiVersion = "v1/",
             kermitLogger = get(),
             isDebugMode = getPlatform().isDebugMode(),
             accountManager = get(),
@@ -39,6 +40,7 @@ val remoteModule = module {
         setupHttpClient(
             json = get(),
             baseUrl = get(named(BASE_URL_SPACEX)),
+            apiVersion = "v4/",
             kermitLogger = get(),
             isDebugMode = getPlatform().isDebugMode(),
             accountManager = get(),
