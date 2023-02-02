@@ -16,7 +16,6 @@ import com.nbs.kmm.sample.domain.base.ErrorCode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.retryWhen
-import java.net.UnknownHostException
 
 suspend fun <U> proceed(
     outputLiveData: MutableLiveData<Resource<U>>,
@@ -29,14 +28,6 @@ suspend fun <U> proceed(
         .catch { cause: Throwable ->
             if (cause is ApiError) {
                 outputLiveData.value = Resource.fail(cause, cause.errorMessage)
-            } else if (cause is UnknownHostException) {
-                if (!isNetworkConnected())
-                    outputLiveData.value = Resource.fail(
-                        NoConnectionException(ErrorCode.ERROR_NO_CONNECTION),
-                        ErrorCode.DEFAULT_ERROR_MESSAGE
-                    )
-                else
-                    outputLiveData.value = Resource.fail(cause, ErrorCode.DEFAULT_ERROR_MESSAGE)
             } else {
                 outputLiveData.value = Resource.fail(cause, ErrorCode.DEFAULT_ERROR_MESSAGE)
             }
@@ -143,3 +134,9 @@ fun showAlertDialog(context: Context, message: String) {
         .setMessage(message)
         .show()
 }
+
+fun isValidEmail(email: String) = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
+fun isValidPassword(password: String) = password.length >= 6
+
+fun isValidRePassword(password: String, re_password: String) = password == re_password

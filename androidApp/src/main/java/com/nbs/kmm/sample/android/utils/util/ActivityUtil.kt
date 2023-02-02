@@ -4,7 +4,6 @@ import android.app.Activity
 import android.os.Build
 import android.view.View
 
-
 fun Activity.setColoredStatusBar(color: Int, isDarkStatusBar: Boolean) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         val decor = window.decorView

@@ -42,7 +42,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtUserName"
-            style="@style/SampleEditTextStyle.UserId"
+            style="@style/SampleEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/hint_input_username"
@@ -73,10 +73,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtEmail"
-            style="@style/SampleEditTextStyle.UserId"
+            style="@style/SampleEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/hint_input_username"
+            android:hint="@string/hint_input_email"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>

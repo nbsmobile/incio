@@ -27,7 +27,7 @@
             style="@style/SampleText.Medium"
             android:layout_width="@dimen/dimen_0dp"
             android:layout_marginTop="@dimen/dimen_56dp"
-            android:text="@string/label_username"
+            android:text="@string/label_email"
             android:textSize="@dimen/text_size_12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +45,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtEmail"
-                style="@style/SampleEditTextStyle.UserId"
+                style="@style/SampleEditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/hint_input_username"
+                android:hint="@string/hint_input_email"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
