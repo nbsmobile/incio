@@ -1,6 +1,9 @@
 package com.nbs.kmm.sample
 
 import com.nbs.kmm.sample.cache.IOSDatabaseDriverFactory
+import com.russhwolf.settings.ExperimentalSettingsImplementation
+import com.russhwolf.settings.KeychainSettings
+import com.russhwolf.settings.Settings
 import com.squareup.sqldelight.db.SqlDriver
 import io.ktor.client.*
 import io.ktor.client.engine.darwin.*
@@ -27,6 +30,11 @@ class IOSPlatform : Platform {
 
     override fun getDatabaseDriver(): SqlDriver {
         return IOSDatabaseDriverFactory().createDriver()
+    }
+
+    @OptIn(ExperimentalSettingsImplementation::class)
+    override fun getEncryptedPreference(preferenceName: String): Settings {
+        return KeychainSettings(preferenceName)
     }
 }
 
