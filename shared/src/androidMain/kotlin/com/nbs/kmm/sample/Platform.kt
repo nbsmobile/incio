@@ -5,6 +5,7 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.nbs.kmm.sample.cache.AndroidDatabaseDriverFactory
+import com.nbs.kmm.sample.utils.logging
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.db.SqlDriver
