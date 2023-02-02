@@ -19,6 +19,10 @@ struct RegisterView: WrappedView {
   @State var passwordValue = ""
   @State var confirmPasswordValue = ""
 
+  var isValid: Bool {
+    !usernameValue.isEmpty && !emailValue.isEmpty && !passwordValue.isEmpty && passwordValue.count >= 6 && passwordValue == confirmPasswordValue
+  }
+
   init(holder: WrapperHolder, navigator: MembershipNavigator, viewModel: MembershipViewModel) {
     self.holder = holder
     self.navigator = navigator
@@ -61,6 +65,8 @@ struct RegisterView: WrappedView {
             .font(.callout)
             .padding(.vertical, 10)
             .padding(.horizontal, 12)
+            .keyboardType(.emailAddress)
+            .textCase(.lowercase)
             .overlay(RoundedRectangle(cornerRadius: 8)
               .stroke(Color.gray, lineWidth: 1)
             )
@@ -87,29 +93,42 @@ struct RegisterView: WrappedView {
             .bold()
             .foregroundColor(.black)
 
-          SecureField("••••••••••••••••••", text: $confirmPasswordValue)
-            .font(.callout)
-            .padding(.vertical, 10)
-            .padding(.horizontal, 12)
-            .overlay(RoundedRectangle(cornerRadius: 8)
-              .stroke(Color.gray, lineWidth: 1)
-            )
+          VStack(alignment: .leading, spacing: 2) {
+            SecureField("••••••••••••••••••", text: $confirmPasswordValue)
+              .font(.callout)
+              .padding(.vertical, 10)
+              .padding(.horizontal, 12)
+              .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray, lineWidth: 1)
+              )
+
+            if passwordValue != confirmPasswordValue {
+              Text("Kata Sandi tidak sama...")
+                .font(.footnote)
+                .foregroundColor(.red)
+            }
+          }
         }
 
         Spacer()
 
-        Button {
-          viewModel.doRegister(registerParam: .init(name: "Abdhikun", email: "abdhi@nusantarabetastudio.com", password: "Abdhi2022!"))
-        } label: {
-          Text("Daftar")
-            .font(.callout)
-            .bold()
-            .foregroundColor(.white)
+        if case .loading = viewModel.register {
+          ActivityIndicator(isAnimating: .constant(true), style: .medium, color: .gray)
+        } else {
+          Button {
+            viewModel.doRegister(registerParam: .init(name: usernameValue, email: emailValue, password: passwordValue))
+          } label: {
+            Text("Daftar")
+              .font(.callout)
+              .bold()
+              .foregroundColor(.white)
+          }
+          .frame(maxWidth: .infinity)
+          .frame(height: 44)
+          .background(!isValid ? Color.gray : Color.orange)
+          .cornerRadius(8)
+          .disabled(!isValid)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 44)
-        .background(Color.orange)
-        .cornerRadius(8)
       }
       .padding(16)
       .padding(.vertical, 16)
@@ -119,9 +138,6 @@ struct RegisterView: WrappedView {
       onSuccess: { data in
         guard let viewController = holder.viewController else { return }
         viewController.navigationController?.popToRootViewController(animated: true)
-      },
-      onLoading: { state in
-
       },
       onFailed: { error in
         print("Error: \(error.localizedDescription)")

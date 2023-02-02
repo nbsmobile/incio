@@ -16,6 +16,11 @@ struct LoginView: WrappedView {
 
   @State var emailValue = ""
   @State var passwordValue = ""
+  @State var errorValue = ""
+
+  var isValid: Bool {
+    !emailValue.isEmpty && !passwordValue.isEmpty && passwordValue.count >= 6
+  }
 
   init(holder: WrapperHolder, navigator: MembershipNavigator, viewModel: MembershipViewModel) {
     self.holder = holder
@@ -44,6 +49,7 @@ struct LoginView: WrappedView {
             .font(.callout)
             .padding(.vertical, 10)
             .padding(.horizontal, 12)
+            .keyboardType(.emailAddress)
             .overlay(RoundedRectangle(cornerRadius: 8)
               .stroke(Color.gray, lineWidth: 1)
             )
@@ -55,30 +61,44 @@ struct LoginView: WrappedView {
             .bold()
             .foregroundColor(.black)
 
-          SecureField("••••••••••••••••••", text: $passwordValue)
-            .font(.callout)
-            .padding(.vertical, 10)
-            .padding(.horizontal, 12)
-            .overlay(RoundedRectangle(cornerRadius: 8)
-              .stroke(Color.gray, lineWidth: 1)
-            )
+          VStack(alignment: .leading, spacing: 2) {
+            SecureField("••••••••••••••••••", text: $passwordValue)
+              .font(.callout)
+              .padding(.vertical, 10)
+              .padding(.horizontal, 12)
+              .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray, lineWidth: 1)
+              )
+
+            if !errorValue.isEmpty {
+              Text(errorValue)
+                .font(.footnote)
+                .foregroundColor(.red)
+            }
+          }
         }
 
         Spacer()
 
         VStack(spacing: 16) {
-          Button {
-            viewModel.doLogin(email: "abdhi@nusantarabetastudio.com", password: "Abdhi2022!")
-          } label: {
-            Text("Masuk")
-              .font(.callout)
-              .bold()
-              .foregroundColor(.white)
+          if case .loading = viewModel.login {
+            ActivityIndicator(isAnimating: .constant(true), style: .medium, color: .gray)
+          } else {
+            Button {
+              errorValue.removeAll()
+              viewModel.doLogin(email: emailValue.lowercased(), password: passwordValue)
+            } label: {
+              Text("Masuk")
+                .font(.callout)
+                .bold()
+                .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
+            .background(!isValid ? Color.gray : Color.orange)
+            .cornerRadius(8)
+            .disabled(!isValid)
           }
-          .frame(maxWidth: .infinity)
-          .frame(height: 44)
-          .background(Color.orange)
-          .cornerRadius(8)
 
           Text("Belum punya akun?")
             .font(.callout)
@@ -111,10 +131,8 @@ struct LoginView: WrappedView {
         guard let viewController = holder.viewController else { return }
         navigator.navigateToStory(window: viewController.view.window)
       },
-      onLoading: { state in
-
-      },
       onFailed: { error in
+        errorValue = error.localizedDescription
         print("Error: \(error.localizedDescription)")
       }
     )
