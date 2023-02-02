@@ -11,17 +11,16 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".sample.preference.PreferenceDemoActivity"
-            android:exported="true">
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".sample.rocketlaunch.RocketLaunchActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".sample.rocketlaunch.RocketLaunchActivity"
-            android:exported="false" >
-
         </activity>
     </application>
 

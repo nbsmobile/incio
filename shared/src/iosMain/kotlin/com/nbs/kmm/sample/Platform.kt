@@ -28,8 +28,8 @@ class IOSPlatform : Platform {
         return true
     }
 
-    override fun getDatabaseDriver(): SqlDriver {
-        return IOSDatabaseDriverFactory().createDriver()
+    override fun getDatabaseDriver(dbName: String, passphrase: String): SqlDriver {
+        return IOSDatabaseDriverFactory(dbName, passphrase).createDriver()
     }
 
     @OptIn(ExperimentalSettingsImplementation::class)

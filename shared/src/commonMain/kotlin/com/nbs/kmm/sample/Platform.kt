@@ -8,7 +8,7 @@ interface Platform {
     val name: String
     fun getHttpClientEngine(): HttpClient
     fun isDebugMode(): Boolean
-    fun getDatabaseDriver() : SqlDriver
+    fun getDatabaseDriver(dbName: String, passphrase: String) : SqlDriver
 
     fun getEncryptedPreference(preferenceName: String): Settings
 }
