@@ -24,6 +24,7 @@ extension KoinApplication {
   private static let keyPaths: [PartialKeyPath<Koin>] = [
     \.rocketLaunchUseCase,
     \.storyUseCase,
+    \.accountManager,
     \.preferenceManager,
     \.membershipUseCase
   ]
