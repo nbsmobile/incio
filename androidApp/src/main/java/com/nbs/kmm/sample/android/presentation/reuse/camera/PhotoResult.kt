@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.persentation.reuse.camera
+package com.nbs.kmm.sample.android.presentation.reuse.camera
 
 import java.io.File
 import java.io.Serializable

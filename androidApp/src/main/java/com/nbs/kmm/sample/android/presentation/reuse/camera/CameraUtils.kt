@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.persentation.reuse.camera
+package com.nbs.kmm.sample.android.presentation.reuse.camera
 
 import android.content.Context
 import android.content.ContextWrapper

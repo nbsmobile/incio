@@ -18,5 +18,7 @@
     <string name="action_open_setting">Buka Settings</string>
     <string name="action_post">Post</string>
     <string name="hint_upload_photo_story">Masukkan Foto Story</string>
+    <string name="label_email">Email</string>
+    <string name="label_description">Deskripsi</string>
 
 </resources>

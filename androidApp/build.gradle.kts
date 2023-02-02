@@ -35,6 +35,11 @@ android {
         }
     }
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            isMinifyEnabled = false
+        }
+
         getByName("release") {
             isMinifyEnabled = false
         }
@@ -90,6 +95,12 @@ dependencies {
     implementation("com.badoo.reaktive:reaktive:1.2.1")
     implementation("com.badoo.reaktive:reaktive-annotations:1.2.1")
     implementation("com.badoo.reaktive:coroutines-interop:1.2.1")
+
+    // Image Loader
+    implementation("io.coil-kt:coil:2.2.2")
+
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 }
 
 configurations.implementation {

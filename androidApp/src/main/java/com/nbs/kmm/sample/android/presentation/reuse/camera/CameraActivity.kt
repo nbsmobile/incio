@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.persentation.reuse.camera
+package com.nbs.kmm.sample.android.presentation.reuse.camera
 
 import android.Manifest
 import android.app.Activity
@@ -18,7 +18,7 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.nbs.kmm.sample.android.persentation.reuse.camera.CameraActivity.CameraMode.BACK
+import com.nbs.kmm.sample.android.presentation.reuse.camera.CameraActivity.CameraMode.BACK
 import com.nbs.kmm.sample.android.R
 import com.nbs.kmm.sample.android.utils.showAlertDialog
 import com.nbs.kmm.sample.android.utils.util.disable
@@ -80,7 +80,7 @@ class CameraActivity : AppCompatActivity() {
             context: Context?,
             id: Int?,
             cameraMode: CameraMode = BACK
-        ): Intent? {
+        ): Intent {
             val intent = Intent(context, CameraActivity::class.java)
             intent.putExtra(CAMERA_MODE, cameraMode)
             intent.putExtra("SCHEMA_ID", id)

@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:fillViewport="true"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,13 +13,14 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvLogin"
             android:layout_width="@dimen/dimen_0dp"
+            style="@style/SampleText.Medium"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_64dp"
-            app:layout_constraintTop_toTopOf="parent"
             android:text="@string/label_login"
             android:textSize="@dimen/text_size_28sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvEmail"
@@ -87,11 +89,15 @@
             android:id="@+id/btnLogin"
             style="@style/SampleButtonStyle"
             android:layout_width="@dimen/dimen_0dp"
-            android:layout_marginTop="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_56dp"
             android:text="@string/action_login"
+            app:layout_constraintBottom_toTopOf="@+id/tvRegister"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvRegister"
@@ -99,9 +105,11 @@
             android:layout_marginTop="@dimen/dimen_16dp"
             android:text="@string/label_dont_have_account"
             android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnRegister"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegister"
@@ -109,8 +117,10 @@
             android:layout_width="@dimen/dimen_0dp"
             android:layout_marginTop="@dimen/dimen_16dp"
             android:text="@string/action_register"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+            app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

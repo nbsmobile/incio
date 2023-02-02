@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.persentation.reuse.camera
+package com.nbs.kmm.sample.android.presentation.reuse.camera
 
 import android.Manifest
 import android.app.Activity
@@ -10,7 +10,6 @@ import androidx.core.content.PermissionChecker
 
 const val REQUEST_STORAGE_PERMISSION = 3
 const val REQUEST_CAMERA_PERMISSION = 4
-const val REQUEST_LOCATION_PERMISSION = 5
 
 fun checkCameraPermission(context: Context): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -52,14 +51,6 @@ fun checkStoragePermission(context: Context): Boolean {
     }
 }
 
-fun checkLocationPermission(context: Context): Boolean {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-    } else {
-        PermissionChecker.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PermissionChecker.PERMISSION_GRANTED
-    }
-}
-
 fun requestStoragePermission(activity: Activity) {
     if (!checkStoragePermission(activity)) {
         ActivityCompat.requestPermissions(
@@ -74,15 +65,6 @@ fun requestCameraPermission(activity: Activity) {
         ActivityCompat.requestPermissions(
             activity, arrayOf(Manifest.permission.CAMERA),
             REQUEST_CAMERA_PERMISSION
-        )
-    }
-}
-
-fun requestLocationPermission(activity: Activity) {
-    if (!checkLocationPermission(activity)) {
-        ActivityCompat.requestPermissions(
-            activity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-            REQUEST_LOCATION_PERMISSION
         )
     }
 }

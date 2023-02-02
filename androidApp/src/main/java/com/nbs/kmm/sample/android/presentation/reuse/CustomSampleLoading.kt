@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.persentation.reuse
+package com.nbs.kmm.sample.android.presentation.reuse
 
 import android.app.Dialog
 import android.content.Context

@@ -2,16 +2,14 @@ package com.nbs.kmm.sample.android.base
 
 import android.accounts.AccountManager
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.badoo.reaktive.disposable.CompositeDisposable
-import com.badoo.reaktive.disposable.addTo
+import androidx.viewbinding.ViewBinding
 import com.badoo.reaktive.observable.observeOn
 import com.badoo.reaktive.observable.subscribe
 import com.badoo.reaktive.scheduler.mainScheduler
-import com.nbs.kmm.sample.android.persentation.reuse.CustomSampleLoading
+import com.nbs.kmm.sample.android.presentation.reuse.CustomSampleLoading
 import com.nbs.kmm.sample.utils.eventbus.Event
 import com.nbs.kmm.sample.utils.eventbus.EventBus
 import kotlinx.coroutines.CoroutineScope
@@ -21,9 +19,10 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import kotlin.coroutines.CoroutineContext
 
-abstract class SampleBaseActivity : AppCompatActivity(), CoroutineScope, BaseView {
-
-    abstract fun initBinding()
+abstract class SampleBaseActivity<VB : ViewBinding> : AppCompatActivity(), CoroutineScope,
+    BaseView {
+    abstract fun getViewBinding(): VB
+    lateinit var binding: VB
 
     abstract fun initIntent()
 
@@ -41,11 +40,12 @@ abstract class SampleBaseActivity : AppCompatActivity(), CoroutineScope, BaseVie
 
     private val loading: CustomSampleLoading by lazy { CustomSampleLoading(this) }
 
-    private val disposable: CompositeDisposable by inject()
+//    private val disposable: CompositeDisposable by inject()
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        initBinding()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = getViewBinding()
+        setContentView(binding.root)
         initIntent()
         initUI()
         initAction()
@@ -96,7 +96,7 @@ abstract class SampleBaseActivity : AppCompatActivity(), CoroutineScope, BaseVie
 //                    delay(5000)
                 }
             }
-            .addTo(disposable)
+//            .addTo(disposable)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -108,8 +108,7 @@ abstract class SampleBaseActivity : AppCompatActivity(), CoroutineScope, BaseVie
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!disposable.isDisposed) {
-            disposable.dispose()
-        }
+//        if (!disposable.isDisposed) {
+//            disposable.dispose()
     }
 }
