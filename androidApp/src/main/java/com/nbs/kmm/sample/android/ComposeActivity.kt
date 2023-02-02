@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import com.nbs.kmm.sample.android.rocketlaunch.RocketLaunchScreen
 import com.nbs.kmm.sample.android.theme.MyApplicationTheme
 
-class MainActivity : ComponentActivity() {
+class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

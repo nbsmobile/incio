@@ -2,8 +2,10 @@ package com.nbs.kmm.sample.android.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.lifecycle.MutableLiveData
@@ -113,6 +115,31 @@ fun isNetworkConnected(): Boolean {
     return activeNetwork != null && activeNetwork.isConnectedOrConnecting
 }
 
-fun showToast(message: String){
+fun showToast(message: String) {
     Toast.makeText(ContextProvider.get(), message, Toast.LENGTH_SHORT).show()
+}
+
+
+fun showAlertDialog(
+    context: Context,
+    title: String,
+    message: String,
+    positive: String,
+    positiveListener: DialogInterface.OnClickListener,
+    negative: String,
+    negativeListener: DialogInterface.OnClickListener
+) {
+    AlertDialog.Builder(context)
+        .setTitle(title)
+        .setMessage(message)
+        .setPositiveButton(positive, positiveListener)
+        .setNegativeButton(negative, negativeListener)
+        .show()
+}
+
+
+fun showAlertDialog(context: Context, message: String) {
+    AlertDialog.Builder(context)
+        .setMessage(message)
+        .show()
 }
