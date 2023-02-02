@@ -10,8 +10,12 @@ import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.db.SqlDriver
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
+import org.json.JSONObject
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import java.nio.charset.Charset
+import javax.crypto.Mac
+import javax.crypto.spec.SecretKeySpec
 
 class AndroidPlatform : Platform, KoinComponent {
 
@@ -50,6 +54,28 @@ class AndroidPlatform : Platform, KoinComponent {
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
             )
         )
+    }
+
+    override fun getRequestHash(): String {
+        val key: String = "NBS KMM Sample"
+        val timestamp = (System.currentTimeMillis() / 1000).toString()
+        val algorithm: String = "HmacSHA256"
+        val charset: Charset = Charset.forName("UTF-8")
+
+        val sha256Hmac: Mac = Mac.getInstance(algorithm)
+        val secretKeySpec = SecretKeySpec(key.toByteArray(charset), algorithm)
+        sha256Hmac.init(secretKeySpec)
+        val hash: String = bytesToHex(sha256Hmac.doFinal(timestamp.toByteArray(charset))).orEmpty()
+        logging { "HASH ANDROID $hash" }
+        return hash
+    }
+
+    private fun bytesToHex(bytes: ByteArray): String? {
+        val sb = StringBuilder()
+        for (b in bytes) {
+            sb.append(String.format("%02x", b))
+        }
+        return sb.toString()
     }
 }
 
