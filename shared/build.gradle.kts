@@ -31,8 +31,8 @@ buildkonfig {
 
     // default config is required
     defaultConfigs {
-        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev/v1")
-        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com/v4")
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
     }
 }
 

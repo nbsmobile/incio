@@ -59,6 +59,8 @@ fun setupHttpClient(
             url {
                 this.user
                 protocol = URLProtocol.HTTPS
+
+                appendPathSegments("v1/")
             }
         }
 
