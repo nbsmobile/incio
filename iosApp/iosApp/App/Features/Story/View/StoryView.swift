@@ -71,14 +71,15 @@ struct StoryRow: View {
       }
       .padding(.horizontal, 8)
 
-      VStack(spacing: 12) {
-        CustomWebImage(urlImage: item.photoUrl)
-          .frame(height: 348)
-          .frame(width: 128)
-          .frame(maxWidth: .infinity)
+      VStack(alignment: .leading, spacing: 12) {
+        CustomWebImage(
+          urlImage: item.photoUrl,
+          width: UIScreen.screenWidth,
+          height: 348)
 
         Text(item.description_)
           .font(.caption)
+          .bold()
           .foregroundColor(.black)
           .padding(.horizontal, 8)
       }

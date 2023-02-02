@@ -13,10 +13,13 @@ struct CustomWebImage: View {
 
   let urlImage: String
   var contentMode: ContentMode = .fill
+  var width: CGFloat? = nil
+  var height: CGFloat? = nil
 
   var body: some View {
     WebImage(url: URL(string: urlImage))
       .resizable()
+      .frame(width: width, height: height)
       .aspectRatio(contentMode: contentMode)
       .scaledToFill()
   }
