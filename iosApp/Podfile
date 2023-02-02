@@ -8,6 +8,7 @@ end
 
 def ui_pod
   pod 'Introspect'
+  pod 'SDWebImageSwiftUI'
 end
 
 target 'iosApp' do

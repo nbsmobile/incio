@@ -3,6 +3,7 @@ package com.nbs.kmm.sample.data.lib
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.LoggerConfig
 import com.nbs.kmm.sample.data.base.ApiException
+import com.nbs.kmm.sample.domain.account.AccountManager
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.compression.*
@@ -34,6 +35,7 @@ fun setupHttpClient(
     baseUrl: String,
     kermitLogger: Logger,
     isDebugMode: Boolean = true,
+    accountManager: AccountManager,
     httpClientProvider: HttpClient
 ): HttpClient {
 
@@ -47,7 +49,7 @@ fun setupHttpClient(
             json(setupJson())
         }
 
-        install(HeaderInterceptor())
+        install(HeaderInterceptor(accountManager))
 
         install(SessionAuthenticator())
 
@@ -57,6 +59,8 @@ fun setupHttpClient(
             url {
                 this.user
                 protocol = URLProtocol.HTTPS
+
+                appendPathSegments("v1/")
             }
         }
 
