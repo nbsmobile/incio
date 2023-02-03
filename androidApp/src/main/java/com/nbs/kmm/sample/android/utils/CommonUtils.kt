@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +15,6 @@ import com.nbs.kmm.sample.domain.base.ErrorCode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.retryWhen
-import java.net.UnknownHostException
 
 suspend fun <U> proceed(
     outputLiveData: MutableLiveData<Resource<U>>,
@@ -27,14 +27,6 @@ suspend fun <U> proceed(
         .catch { cause: Throwable ->
             if (cause is ApiError) {
                 outputLiveData.value = Resource.fail(cause, cause.errorMessage)
-            } else if (cause is UnknownHostException) {
-                if (!isNetworkConnected())
-                    outputLiveData.value = Resource.fail(
-                        NoConnectionException(ErrorCode.ERROR_NO_CONNECTION),
-                        ErrorCode.DEFAULT_ERROR_MESSAGE
-                    )
-                else
-                    outputLiveData.value = Resource.fail(cause, ErrorCode.DEFAULT_ERROR_MESSAGE)
             } else {
                 outputLiveData.value = Resource.fail(cause, ErrorCode.DEFAULT_ERROR_MESSAGE)
             }
@@ -85,6 +77,7 @@ fun <T> observeApiError(resources: Resource<T>?): ApiError {
         }
         is NoConnectionException -> {
             return ApiError(
+                0,
                 ErrorCode.ERROR_NO_CONNECTION,
                 ContextProvider.get().getString(R.string.error_no_connection),
                 status = false
@@ -93,6 +86,7 @@ fun <T> observeApiError(resources: Resource<T>?): ApiError {
         else -> {
             resource.throwable?.printStackTrace()
             return ApiError(
+                0,
                 ErrorCode.ERROR_UNABLE_TO_REACH_SERVICE,
                 ContextProvider.get().getString(R.string.error_unable_to_connect),
                 status = false
@@ -113,6 +107,41 @@ fun isNetworkConnected(): Boolean {
     return activeNetwork != null && activeNetwork.isConnectedOrConnecting
 }
 
-fun showToast(message: String){
+fun showToast(message: String) {
     Toast.makeText(ContextProvider.get(), message, Toast.LENGTH_SHORT).show()
 }
+
+
+fun showAlertDialog(
+    context: Context,
+    title: String,
+    message: String,
+    positive: String,
+    positiveListener: () -> Unit,
+    negative: String,
+    negativeListener: (() -> Unit)?
+) {
+    AlertDialog.Builder(context)
+        .setTitle(title)
+        .setMessage(message)
+        .setPositiveButton(positive) { _, _ ->
+            positiveListener.invoke()
+        }
+        .setNegativeButton(negative) { _, _ ->
+            negativeListener?.invoke()
+        }
+        .show()
+}
+
+
+fun showAlertDialog(context: Context, message: String) {
+    AlertDialog.Builder(context)
+        .setMessage(message)
+        .show()
+}
+
+fun isValidEmail(email: String) = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
+fun isValidPassword(password: String) = password.length >= 6
+
+fun isValidRePassword(password: String, re_password: String) = password == re_password

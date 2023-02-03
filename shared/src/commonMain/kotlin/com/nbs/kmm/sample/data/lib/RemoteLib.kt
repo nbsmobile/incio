@@ -5,7 +5,6 @@ import co.touchlab.kermit.LoggerConfig
 import com.nbs.kmm.sample.data.base.ApiException
 import com.nbs.kmm.sample.domain.account.AccountManager
 import com.nbs.kmm.sample.getPlatform
-import com.nbs.kmm.sample.utils.logging
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.compression.*
@@ -84,14 +83,14 @@ fun setupHttpClient(
                             ApiException.serializer(),
                             serverResponseExceptionText
                         )
-                        throw apiException
+                        throw apiException.copy(httpCode = cause.response.status.value)
                     }
                     is ClientRequestException -> {
                         val exceptionResponse = cause.response
                         val exceptionResponseText = exceptionResponse.bodyAsText().trimIndent()
                         val apiException =
                             json.decodeFromString(ApiException.serializer(), exceptionResponseText)
-                        throw apiException
+                        throw apiException.copy(httpCode = cause.response.status.value)
                     }
                     else -> {
                         throw cause

@@ -32,6 +32,11 @@ android {
         }
     }
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            isMinifyEnabled = false
+        }
+
         getByName("release") {
             isMinifyEnabled = false
         }
@@ -68,8 +73,31 @@ dependencies {
     //gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    //ImageViewer
+    implementation("com.github.stfalcon-studio:StfalconImageViewer:v1.0.1")
+
+    //Camera
+    implementation("io.fotoapparat:fotoapparat:2.7.0")
+
+    //ImagePicker
+    implementation("com.github.dhaval2404:imagepicker:2.1")
+
+    // Crop Image
+    implementation("com.github.yalantis:ucrop:2.2.6")
+
+    //reaktive
+    implementation("com.badoo.reaktive:reaktive:1.2.1")
+    implementation("com.badoo.reaktive:reaktive-annotations:1.2.1")
+    implementation("com.badoo.reaktive:coroutines-interop:1.2.1")
+
+    // Image Loader
+    implementation("io.coil-kt:coil:2.2.2")
+
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 }
 
 configurations.implementation {
