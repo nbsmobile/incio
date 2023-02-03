@@ -54,10 +54,10 @@
 
         <activity
             android:name=".presentation.preference.PreferenceDemoActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <activity
             android:name=".presentation.rocketlaunch.RocketLaunchActivity"
             android:exported="false" />
     </application>
-</manifest> 
+</manifest>

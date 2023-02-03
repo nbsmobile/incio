@@ -1,6 +1,5 @@
 package com.nbs.kmm.sample.android.presentation
 
-import com.nbs.kmm.sample.android.R
 import com.nbs.kmm.sample.android.base.SampleBaseActivity
 import com.nbs.kmm.sample.android.databinding.ActivityMainBinding
 import com.nbs.kmm.sample.android.presentation.membership.login.LoginActivity

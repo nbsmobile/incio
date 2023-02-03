@@ -32,5 +32,8 @@
     <string name="remove_all_launch_success">Remove all launches success</string>
     <string name="get_all_rocket_launches">Get All Rocket Launches</string>
     <string name="remove_all_rocket_launches_from_database">Remove All Launches from Database</string>
+    <string name="logout">Logout</string>
+    <string name="Are_you_sure_to_logout">Are you sure to logout?</string>
+    <string name="no">No</string>
 
 </resources>
