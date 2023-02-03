@@ -2,7 +2,6 @@ package com.nbs.kmm.sample.android.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -78,6 +77,7 @@ fun <T> observeApiError(resources: Resource<T>?): ApiError {
         }
         is NoConnectionException -> {
             return ApiError(
+                0,
                 ErrorCode.ERROR_NO_CONNECTION,
                 ContextProvider.get().getString(R.string.error_no_connection),
                 status = false
@@ -86,6 +86,7 @@ fun <T> observeApiError(resources: Resource<T>?): ApiError {
         else -> {
             resource.throwable?.printStackTrace()
             return ApiError(
+                0,
                 ErrorCode.ERROR_UNABLE_TO_REACH_SERVICE,
                 ContextProvider.get().getString(R.string.error_unable_to_connect),
                 status = false
@@ -116,15 +117,19 @@ fun showAlertDialog(
     title: String,
     message: String,
     positive: String,
-    positiveListener: DialogInterface.OnClickListener,
+    positiveListener: () -> Unit,
     negative: String,
-    negativeListener: DialogInterface.OnClickListener
+    negativeListener: (() -> Unit)?
 ) {
     AlertDialog.Builder(context)
         .setTitle(title)
         .setMessage(message)
-        .setPositiveButton(positive, positiveListener)
-        .setNegativeButton(negative, negativeListener)
+        .setPositiveButton(positive) { _, _ ->
+            positiveListener.invoke()
+        }
+        .setNegativeButton(negative) { _, _ ->
+            negativeListener?.invoke()
+        }
         .show()
 }
 

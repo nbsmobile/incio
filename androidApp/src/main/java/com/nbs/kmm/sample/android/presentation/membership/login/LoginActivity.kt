@@ -13,6 +13,8 @@ import com.nbs.kmm.sample.android.utils.isValidPassword
 import com.nbs.kmm.sample.android.utils.showToast
 import com.nbs.kmm.sample.android.utils.util.showErrorAlert
 import com.nbs.kmm.sample.android.viewmodel.MembershipViewModel
+import com.nbs.kmm.sample.domain.account.AccountManager
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
@@ -24,6 +26,8 @@ class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
     }
 
     private val vm: MembershipViewModel by viewModel()
+
+    private val accountManager: AccountManager by inject()
 
     override fun getViewBinding() = ActivityLoginBinding.inflate(layoutInflater)
 
@@ -47,7 +51,12 @@ class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
         }
     }
 
-    override fun initProses() {}
+    override fun initProses() {
+        if (accountManager.isLoggedIn()){
+            MainActivity.start(this)
+            finish()
+        }
+    }
 
     override fun initObservers() {
         vm.loginResult.observe(this) {

@@ -5,13 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class BaseRecyclerViewAdapter<VH : RecyclerView.ViewHolder, T> :
     RecyclerView.Adapter<VH>() {
 
-    protected var items: MutableList<T>
+    protected var items: MutableList<T> = mutableListOf()
 
     abstract fun onBindViewHolder(holder: VH, item: T, position: Int)
-
-    init {
-        items = mutableListOf()
-    }
 
     override fun getItemCount(): Int {
         return this.items.size

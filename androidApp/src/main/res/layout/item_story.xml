@@ -32,7 +32,7 @@
         tools:text="@tools:sample/lorem" />
 
     <ImageView
-        android:id="@+id/imgStory"
+        android:id="@+id/ivStory"
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="@dimen/dimen_348dp"
         android:layout_marginTop="@dimen/dimen_12dp"
@@ -40,7 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/label_content_image" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/SampleText"
@@ -48,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_8dp"
         android:layout_marginTop="@dimen/dimen_10dp"
+        android:id="@+id/tvDescription"
         android:layout_marginBottom="@dimen/dimen_12dp"
         android:ellipsize="end"
         android:maxLines="2"
@@ -56,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgStory"
+        app:layout_constraintTop_toBottomOf="@+id/ivStory"
         tools:text="@tools:sample/lorem/random" />
 
 

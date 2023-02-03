@@ -5,25 +5,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.nbs.kmm.sample.android.base.BaseRecyclerViewAdapter
 import com.nbs.kmm.sample.android.databinding.ItemStoryBinding
+import com.nbs.kmm.sample.android.utils.util.setImageUrl
+import com.nbs.kmm.sample.domain.story.model.Story
 
 class StoryAdapter(
-    private val onItemClicked: (String) -> Unit
-) : BaseRecyclerViewAdapter<StoryAdapter.NewsViewHolder, String>() {
+    private val onItemClicked: (Story) -> Unit
+) : BaseRecyclerViewAdapter<StoryAdapter.NewsViewHolder, Story>() {
 
     inner class NewsViewHolder(private val binding: ItemStoryBinding) : ViewHolder(binding.root) {
-        fun onBind(data: String) {
+        fun onBind(data: Story) {
             with(binding) {
-//                tvTitle.text = news.label
-//                tvDescription.text = news.description
-//                ivNews.setImageDrawable(
-//                    ContextCompat.getDrawable(binding.root.context, news.image)
-//                )
+                tvUsername.text = data.name
+                tvDescription.text = data.description
+                ivStory.setImageUrl(data.photoUrl,true)
                 root.setOnClickListener { onItemClicked.invoke(data) }
             }
         }
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, item: String, position: Int) {
+    override fun onBindViewHolder(holder: NewsViewHolder, item: Story, position: Int) {
         holder.onBind(item)
     }
 

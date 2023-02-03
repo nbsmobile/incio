@@ -26,5 +26,6 @@
     <string name="error_password_is_not_valid">Password minimal 6 karakter</string>
     <string name="error_confirm_password_is_not_same">Password tidak sama</string>
     <string name="hint_input_email">Masukkan email</string>
+    <string name="hint_input_description">Masukkan Deskripsi</string>
 
 </resources>

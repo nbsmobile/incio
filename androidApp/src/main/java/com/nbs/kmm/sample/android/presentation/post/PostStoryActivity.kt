@@ -45,6 +45,7 @@ class PostStoryActivity : SampleBaseActivity<ActivityPostStoryBinding>() {
                 if (requestCode == UPLOAD_PHOTO_STORY_CODE) {
                     val profileImagePath = result.resultFile.absolutePath
                     showToast(profileImagePath)
+                    binding.cuivPhotoStory.setResultImage(profileImagePath)
                 }
             }
         }

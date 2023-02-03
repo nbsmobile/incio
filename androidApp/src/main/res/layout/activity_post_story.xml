@@ -51,7 +51,7 @@
                     style="@style/SampleEditTextStyle.UserId"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="@string/hint_input_username"
+                    android:hint="@string/hint_input_description"
                     android:lines="4"
                     android:maxLines="8"
                     android:imeOptions="actionDone"
