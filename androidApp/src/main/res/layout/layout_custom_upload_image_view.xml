@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/uploadImageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/bg_rounded_dash_line_4dp"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_camera" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUploadDescription"
+            style="@style/SampleText.Gray3"
+            android:layout_marginTop="@dimen/dimen_13dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/dimen_8dp"
+            android:textSize="@dimen/text_size_10sp"
+            tools:text="@string/hint_upload_photo_story" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:src="@color/colorBrightGray" />
+    </LinearLayout>
+</merge>

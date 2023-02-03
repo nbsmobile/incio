@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:fitsSystemWindows="true">
+
+    <io.fotoapparat.view.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" />
+
+    <io.fotoapparat.view.FocusView
+        android:id="@+id/focusView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/dimen_16dp"
+        app:srcCompat="@drawable/ic_navigation_back"
+        app:tint="@color/colorWhite" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnCapture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/dimen_48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_button_camera" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnFlash"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="@dimen/dimen_32dp"
+        android:layout_marginBottom="@dimen/dimen_56dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_flash_light_off" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnReverse"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="@dimen/dimen_32dp"
+        android:layout_marginBottom="@dimen/dimen_56dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_reverse" />
+</FrameLayout>

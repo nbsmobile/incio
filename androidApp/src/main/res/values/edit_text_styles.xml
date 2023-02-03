@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SampleTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/fira_sans_regular</item>
+        <item name="boxStrokeColor">@color/selector_text_input_layout</item>
+        <item name="boxStrokeWidth">@dimen/dimen_1dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxStrokeErrorColor">@color/colorRed</item>
+        <item name="errorTextAppearance">@style/SampleText.Error</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColorHint">@color/colorAmericanSilver</item>
+        <item name="passwordToggleDrawable">@drawable/selector_toggle_password</item>
+        <item name="passwordToggleTint">@color/colorGray3</item>
+        <item name="boxCornerRadiusBottomEnd">6dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="boxCornerRadiusTopEnd">6dp</item>
+    </style>
+
+    <style name="SampleEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/fira_sans_regular</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:paddingStart">@dimen/dimen_12dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_12dp</item>
+        <item name="android:paddingTop">@dimen/dimen_10dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_10dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColorHint">@color/colorAmericanSilver</item>
+    </style>
+
+    <style name="SampleEditTextStyle.NoWhiteSpace" parent="SampleEditTextStyle">
+        <item name="android:digits">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890`-=~!@#$%^&amp;*()_+[]\{}|;:",./?
+        </item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SampleEditTextStyle.Letter" parent="SampleEditTextStyle">
+        <item name="android:digits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx yz</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SampleEditTextStyle.NoSpecialChar.NoWhiteSpace" parent="SampleEditTextStyle">
+        <item name="android:digits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890
+        </item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SampleEditTextStyle.UserId" parent="SampleEditTextStyle">
+        <item name="android:digits">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz1234567890
+        </item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SampleEditTextStyle.Password" parent="SampleEditTextStyle">
+        <item name="android:digits">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^*?_:;/&amp;+(=)-
+        </item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+</resources>
