@@ -1,6 +1,7 @@
 package com.nbs.kmm.sample
 
 import com.nbs.kmm.sample.cache.IOSDatabaseDriverFactory
+import com.nbs.kmm.sample.utils.logging
 import com.russhwolf.settings.ExperimentalSettingsImplementation
 import com.russhwolf.settings.KeychainSettings
 import com.russhwolf.settings.Settings
@@ -8,15 +9,12 @@ import com.squareup.sqldelight.db.SqlDriver
 import io.ktor.client.*
 import io.ktor.client.engine.darwin.*
 import kotlinx.cinterop.refTo
-import platform.UIKit.UIDevice
 import platform.CoreCrypto.CCHmac
 import platform.CoreCrypto.CCHmacAlgorithm
 import platform.CoreCrypto.CC_SHA256_DIGEST_LENGTH
 import platform.CoreCrypto.kCCHmacAlgSHA256
-import platform.CoreFoundation.CFRelease
-import platform.CoreFoundation.CFStringCreateWithFormat
-import platform.CoreFoundation.CFStringRef
 import platform.Foundation.*
+import platform.UIKit.UIDevice
 
 class IOSPlatform : Platform {
 
