@@ -1,6 +1,7 @@
 package com.nbs.kmm.sample
 
 import com.nbs.kmm.sample.cache.IOSDatabaseDriverFactory
+import com.nbs.kmm.sample.utils.logging
 import com.russhwolf.settings.ExperimentalSettingsImplementation
 import com.russhwolf.settings.KeychainSettings
 import com.russhwolf.settings.Settings
