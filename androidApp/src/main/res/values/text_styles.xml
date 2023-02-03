@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--region Regular Text (width=400)-->
+    <style name="SampleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/fira_sans_regular</item>
+    </style>
+
+    <style name="SampleText.Black">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="SampleText.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="SampleText.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="SampleText.Red">
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+
+    <!--region Medium Text (width=500)-->
+    <style name="SampleText.Medium">
+        <item name="android:fontFamily">@font/fira_sans_medium</item>
+    </style>
+
+    <style name="SampleText.Medium.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+
+    <style name="SampleText.Medium.Red">
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+    <!--region Bold Text (width=700)-->
+    <style name="SampleText.Bold">
+        <item name="android:fontFamily">@font/fira_sans_bold</item>
+    </style>
+
+
+    <style name="SampleText.Bold.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+
+    <style name="SampleToolbarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_17sp</item>
+        <item name="android:fontFamily">@font/fira_sans_medium</item>
+    </style>
+
+    <style name="SampleText.Error">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textSize">@dimen/text_size_10sp</item>
+    </style>
+</resources>

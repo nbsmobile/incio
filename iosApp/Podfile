@@ -4,10 +4,12 @@ def general_pod
   pod 'netfox'
   pod 'shared', :path => '../shared'
   pod 'KMPNativeCoroutinesCombine', '0.13.1'
+  pod 'SQLCipher', '~>4.0'
 end
 
 def ui_pod
   pod 'Introspect'
+  pod 'SDWebImageSwiftUI'
 end
 
 target 'iosApp' do

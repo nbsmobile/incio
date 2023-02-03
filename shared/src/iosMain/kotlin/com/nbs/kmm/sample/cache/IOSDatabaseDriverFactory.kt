@@ -1,10 +1,24 @@
 package com.nbs.kmm.sample.cache
 
+import co.touchlab.sqliter.DatabaseConfiguration
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
+import com.squareup.sqldelight.drivers.native.wrapConnection
 
-class IOSDatabaseDriverFactory : DatabaseDriverFactory {
+class IOSDatabaseDriverFactory(private val dbName: String, private val passphrase: String) : DatabaseDriverFactory {
     override fun createDriver(): SqlDriver {
-        return NativeSqliteDriver(AppDatabase.Schema, "test.db")
+        val configuration = DatabaseConfiguration(
+            name = dbName,
+            version = AppDatabase.Schema.version,
+            create = {connection ->
+                wrapConnection(connection) { AppDatabase.Schema.create(it) }
+            },
+            upgrade = { connection, oldVersion, newVersion ->
+                wrapConnection(connection) { AppDatabase.Schema.migrate(it, oldVersion, newVersion ) }
+            },
+            encryptionConfig = DatabaseConfiguration.Encryption(key = passphrase, rekey = passphrase)
+        )
+
+        return NativeSqliteDriver(configuration)
     }
 }

@@ -8,3 +8,5 @@ captures
 .cxx
 local.properties
 xcuserdata
+iosApp/Pods/*
+iosApp/Podfile.lock

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SampleButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/dimen_16dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_16dp</item>
+        <item name="android:paddingTop">@dimen/dimen_12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">@dimen/dimen_12dp</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:fontFamily">@font/fira_sans_medium</item>
+        <item name="cornerRadius">@dimen/dimen_8dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:backgroundTint">@color/selector_background_primary_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="SampleUnelevatedButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/dimen_16dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_16dp</item>
+        <item name="android:paddingTop">@dimen/dimen_12dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_12dp</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:fontFamily">@font/fira_sans_medium</item>
+        <item name="cornerRadius">@dimen/dimen_8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="SampleUnelevatedButtonStyle.Bordered">
+        <item name="android:backgroundTint">@color/colorTransparent</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorWhite</item>
+        <item name="strokeWidth">@dimen/dimen_1dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="SampleButtonStyle.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">@dimen/dimen_0dp</item>
+        <item name="android:minHeight">@dimen/dimen_0dp</item>
+        <item name="android:insetTop">@dimen/dimen_0dp</item>
+        <item name="android:insetBottom">@dimen/dimen_0dp</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:fontFamily">@font/fira_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

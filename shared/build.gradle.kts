@@ -31,7 +31,20 @@ buildkonfig {
 
     // default config is required
     defaultConfigs {
-        buildConfigField(STRING, "BASE_URL", "api.spacexdata.com/v4")
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+
+    // config for staging
+    defaultConfigs("staging") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+
+    // config for release
+    defaultConfigs("release") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
     }
 }
 
@@ -46,7 +59,7 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = "1.0"
         ios.deploymentTarget = "14.0"
-        podfile = project.file("../iosApp/Podfile")
+//        podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "Shared"
             isStatic = true
@@ -99,6 +112,8 @@ kotlin {
                 implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation("com.github.chuckerteam.chucker:library:3.5.2")
+                implementation("androidx.security:security-crypto:1.0.0")
+                implementation("net.zetetic:android-database-sqlcipher:4.5.3")
             }
         }
         val androidTest by getting {

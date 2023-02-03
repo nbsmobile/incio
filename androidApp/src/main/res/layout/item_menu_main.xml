@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvMainMenu"
+    style="@style/SampleText.Medium"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_16dp"
+    android:background="@drawable/bg_rounded_4dp"
+    android:backgroundTint="@color/colorPrimary"
+    android:padding="@dimen/dimen_16dp"
+    android:textAlignment="center"
+    android:textColor="@color/colorWhite"
+    tools:text="Rocket Launch" />

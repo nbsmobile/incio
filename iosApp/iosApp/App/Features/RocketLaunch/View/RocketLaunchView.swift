@@ -18,7 +18,7 @@ struct RocketLaunchView: WrappedView {
     self.holder = holder
     self._viewModel = StateObject(wrappedValue: viewModel)
 
-    viewModel.getRocketLaunches()
+    viewModel.getAllStories(storyParam: .init(page: 1, size: 10, isIncludeLocation: false))
   }
 
   var body: some View {

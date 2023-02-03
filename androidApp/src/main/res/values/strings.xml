@@ -1,5 +1,39 @@
 <resources>
-    <string name="app_name">NBS Kmm Android Sample</string>
+    <string name="app_name">NBS KMM Inicio Android</string>
     <string name="error_no_connection">Tidak ada koneksi internet, mohon cek internet Anda</string>
     <string name="error_unable_to_connect">Mohon maaf, saat ini aplikasi tidak bisa terhubung ke server</string>
+    <string name="label_login">Masuk</string>
+    <string name="label_username">Username</string>
+    <string name="hint_input_username">Masukkan Username</string>
+    <string name="label_password">Kata Sandi</string>
+    <string name="hint_input_password">Masukkan Kata Sandi</string>
+    <string name="action_login">Masuk</string>
+    <string name="label_dont_have_account">Belum punya akun?</string>
+    <string name="action_register">Daftar</string>
+    <string name="label_register">Daftar</string>
+    <string name="label_confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="label_message_access_write_external_storage">Fungsi menyimpan foto tidak bekerja jika permission ke media penyimpanan ditolak</string>
+    <string name="label_message_when_access_write_external_storage_denied">Anda harus mengizinkan Juara Mobile bisa akses media</string>
+    <string name="action_repeat">Ulangi</string>
+    <string name="action_open_setting">Buka Settings</string>
+    <string name="action_post">Post</string>
+    <string name="hint_upload_photo_story">Masukkan Foto Story</string>
+    <string name="label_email">Email</string>
+    <string name="label_description">Deskripsi</string>
+    <string name="label_content_image">content Image</string>
+    <string name="error_cannot_empty">Tidak Boleh Kosong</string>
+    <string name="error_email_is_not_valid">Email tidak valid</string>
+    <string name="error_password_is_not_valid">Password minimal 6 karakter</string>
+    <string name="error_confirm_password_is_not_same">Password tidak sama</string>
+    <string name="hint_input_email">Masukkan email</string>
+    <string name="hint_input_description">Masukkan Deskripsi</string>
+    <string name="upload_success">Upload Success</string>
+    <string name="login_success">Login Success</string>
+    <string name="remove_all_launch_success">Remove all launches success</string>
+    <string name="get_all_rocket_launches">Get All Rocket Launches</string>
+    <string name="remove_all_rocket_launches_from_database">Remove All Launches from Database</string>
+    <string name="logout">Logout</string>
+    <string name="Are_you_sure_to_logout">Are you sure to logout?</string>
+    <string name="no">No</string>
+
 </resources>

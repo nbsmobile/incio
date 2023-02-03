@@ -7,7 +7,12 @@ import org.koin.dsl.module
 
 val databaseModule = module {
     single {
-        AppDatabase(getPlatform().getDatabaseDriver())
+        AppDatabase(
+            getPlatform().getDatabaseDriver(
+                dbName = "test.db",
+                passphrase = "NBSAwesome!"
+            )
+        )
     }
 
     single {

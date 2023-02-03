@@ -3,6 +3,8 @@ package com.nbs.kmm.sample.data.lib
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.LoggerConfig
 import com.nbs.kmm.sample.data.base.ApiException
+import com.nbs.kmm.sample.domain.account.AccountManager
+import com.nbs.kmm.sample.getPlatform
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.compression.*
@@ -32,8 +34,10 @@ fun setupJson() = Json {
 fun setupHttpClient(
     json: Json,
     baseUrl: String,
+    apiVersion: String,
     kermitLogger: Logger,
     isDebugMode: Boolean = true,
+    accountManager: AccountManager,
     httpClientProvider: HttpClient
 ): HttpClient {
 
@@ -47,23 +51,26 @@ fun setupHttpClient(
             json(setupJson())
         }
 
-        install(HeaderInterceptor())
+        install(HeaderInterceptor(accountManager))
 
         install(SessionAuthenticator())
 
         defaultRequest {
+            getPlatform().getRequestHash()
             host = baseUrl
 
             url {
                 this.user
                 protocol = URLProtocol.HTTPS
+
+                appendPathSegments(apiVersion)
             }
         }
 
         install(HttpTimeout) {
-            this.requestTimeoutMillis = 60000
-            this.connectTimeoutMillis = 60000
-            this.socketTimeoutMillis = 60000
+            this.requestTimeoutMillis = 600000
+            this.connectTimeoutMillis = 600000
+            this.socketTimeoutMillis = 600000
         }
 
         HttpResponseValidator {
@@ -76,14 +83,14 @@ fun setupHttpClient(
                             ApiException.serializer(),
                             serverResponseExceptionText
                         )
-                        throw apiException
+                        throw apiException.copy(httpCode = cause.response.status.value)
                     }
                     is ClientRequestException -> {
                         val exceptionResponse = cause.response
                         val exceptionResponseText = exceptionResponse.bodyAsText().trimIndent()
                         val apiException =
                             json.decodeFromString(ApiException.serializer(), exceptionResponseText)
-                        throw apiException
+                        throw apiException.copy(httpCode = cause.response.status.value)
                     }
                     else -> {
                         throw cause

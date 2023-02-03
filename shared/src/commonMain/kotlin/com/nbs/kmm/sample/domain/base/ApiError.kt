@@ -1,7 +1,8 @@
 package com.nbs.kmm.sample.domain.base
 
 data class ApiError(
-    val errorCode: String,
+    val httpCode: Int,
+    val isError: Boolean,
     val errorMessage: String,
-    val status: Boolean
+    val errorCode: String,
 ): Exception()
