@@ -5,7 +5,7 @@ import android.content.Intent
 import com.nbs.kmm.sample.android.R
 import com.nbs.kmm.sample.android.base.SampleBaseActivity
 import com.nbs.kmm.sample.android.databinding.ActivityLoginBinding
-import com.nbs.kmm.sample.android.presentation.main.MainActivity
+import com.nbs.kmm.sample.android.presentation.main.StoryListActivity
 import com.nbs.kmm.sample.android.presentation.membership.register.RegisterActivity
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.isValidEmail
@@ -25,7 +25,7 @@ class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
         }
     }
 
-    private val vm: MembershipViewModel by viewModel()
+    private val membershipViewModel: MembershipViewModel by viewModel()
 
     private val accountManager: AccountManager by inject()
 
@@ -45,7 +45,7 @@ class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
                 val password = binding.edtPassword.text?.trim().toString()
 
                 if (validate(email, password)) {
-                    vm.login( email, password)
+                    membershipViewModel.login( email, password)
                 }
             }
         }
@@ -53,21 +53,21 @@ class LoginActivity : SampleBaseActivity<ActivityLoginBinding>() {
 
     override fun initProses() {
         if (accountManager.isLoggedIn()){
-            MainActivity.start(this)
+            StoryListActivity.start(this)
             finish()
         }
     }
 
     override fun initObservers() {
-        vm.loginResult.observe(this) {
+        membershipViewModel.loginResult.observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     showLoading()
                 }
                 is Resource.Success -> {
                     hideLoading()
-                    showToast("Login Berhasil")
-                    MainActivity.start(this)
+                    showToast(getString(R.string.login_success))
+                    StoryListActivity.start(this)
                     finish()
                 }
 

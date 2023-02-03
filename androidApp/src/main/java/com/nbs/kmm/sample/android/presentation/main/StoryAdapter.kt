@@ -10,9 +10,9 @@ import com.nbs.kmm.sample.domain.story.model.Story
 
 class StoryAdapter(
     private val onItemClicked: (Story) -> Unit
-) : BaseRecyclerViewAdapter<StoryAdapter.NewsViewHolder, Story>() {
+) : BaseRecyclerViewAdapter<StoryAdapter.StoryViewHolder, Story>() {
 
-    inner class NewsViewHolder(private val binding: ItemStoryBinding) : ViewHolder(binding.root) {
+    inner class StoryViewHolder(private val binding: ItemStoryBinding) : ViewHolder(binding.root) {
         fun onBind(data: Story) {
             with(binding) {
                 tvUsername.text = data.name
@@ -23,12 +23,12 @@ class StoryAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, item: Story, position: Int) {
+    override fun onBindViewHolder(holder: StoryViewHolder, item: Story, position: Int) {
         holder.onBind(item)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        return NewsViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
+        return StoryViewHolder(
             ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }

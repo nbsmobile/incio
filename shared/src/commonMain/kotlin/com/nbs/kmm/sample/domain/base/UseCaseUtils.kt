@@ -18,7 +18,7 @@ fun <T> execute(
             val out = block.invoke()
             emit(out)
         } catch (e: ApiException) {
-            throw e.map(e.errorCode, e.errorMessage, e.status)
+            throw e.map(e.isError, e.errorMessage)
         } catch (e: Throwable) {
             throw e
         }

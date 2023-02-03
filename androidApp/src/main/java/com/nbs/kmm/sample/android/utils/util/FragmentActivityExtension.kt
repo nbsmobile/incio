@@ -61,14 +61,14 @@ fun FragmentActivity.showErrorAlert(
     when (cause) {
         is ApiError -> {
             when (cause.httpCode) {
-                in 400..451 -> showClientAlert(retryAction = retryAction)
+                in 400..451 -> showClientAlert(retryAction = retryAction, errorMessage = message)
                 in 500..599 -> showServerErrorAlert(retryAction = retryAction)
                 else -> showUnknownErrorAlert(retryAction = retryAction)
             }
         }
         is UnknownHostException -> showNoConnectionAlert(retryAction = retryAction)
         is SocketTimeoutException -> showTimeoutAlert(retryAction = retryAction)
-        is IOException -> showUnknownErrorAlert(message,retryAction = retryAction)
-        else -> showUnknownErrorAlert(message,retryAction = retryAction)
+        is IOException -> showUnknownErrorAlert(message, retryAction = retryAction)
+        else -> showUnknownErrorAlert(message, retryAction = retryAction)
     }
 }

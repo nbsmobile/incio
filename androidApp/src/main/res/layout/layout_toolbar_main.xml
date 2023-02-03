@@ -6,6 +6,7 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:minHeight="?attr/actionBarSize"
+    app:title="@string/app_name"
     app:titleTextAppearance="@style/SampleToolbarTitle"
     app:titleTextColor="@color/colorWhite">
 
@@ -20,8 +21,8 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:visibility="gone"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/ic_profile"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnAddStory"
@@ -33,15 +34,25 @@
             android:background="@null"
             android:src="@drawable/ic_add" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/SampleToolbarTitle"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textColor="@color/colorWhite" />
+
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
-            android:padding="@dimen/dimen_4dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/dimen_20dp"
             android:background="@null"
+            android:padding="@dimen/dimen_4dp"
             android:src="@drawable/ic_logout" />
     </RelativeLayout>
 </com.google.android.material.appbar.MaterialToolbar>

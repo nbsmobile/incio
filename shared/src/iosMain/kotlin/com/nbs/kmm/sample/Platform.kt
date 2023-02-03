@@ -21,7 +21,7 @@ class IOSPlatform : Platform {
     override val name: String =
         UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
 
-    override fun getHttpClientEngine(): HttpClient {
+    override fun getHttpClientEngine(forMultipartData: Boolean): HttpClient {
         return HttpClient(Darwin) {
             engine {
                 configureRequest {

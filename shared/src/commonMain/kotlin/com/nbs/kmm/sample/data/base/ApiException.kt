@@ -1,6 +1,7 @@
 package com.nbs.kmm.sample.data.base
 
 import com.nbs.kmm.sample.domain.base.ApiError
+import com.nbs.kmm.sample.utils.emptyString
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -9,19 +10,17 @@ import kotlinx.serialization.Transient
 data class ApiException(
     @Transient
     val httpCode: Int = 0,
-    @SerialName("code")
-    val errorCode: String,
+    @SerialName("error")
+    val isError: Boolean,
     @SerialName("message")
-    val errorMessage: String,
-    @SerialName("success")
-    val status: Boolean
+    val errorMessage: String
 ): Exception() {
-    fun map(code: String?, message: String, status: Boolean): ApiError {
+    fun map(isError: Boolean, message: String): ApiError {
         return ApiError(
             httpCode = httpCode,
-            errorCode = code ?: "",
+            isError = isError,
             errorMessage = message,
-            status = status
+            errorCode = emptyString()
         )
     }
 }

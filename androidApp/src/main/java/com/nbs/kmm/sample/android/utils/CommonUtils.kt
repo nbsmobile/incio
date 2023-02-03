@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.retryWhen
 
 suspend fun <U> proceed(
     outputLiveData: MutableLiveData<Resource<U>>,
+    onSuccess: (() -> Unit)? = null,
     block: suspend () -> Flow<U>
 ) {
     block.invoke()
@@ -31,6 +32,7 @@ suspend fun <U> proceed(
                 outputLiveData.value = Resource.fail(cause, ErrorCode.DEFAULT_ERROR_MESSAGE)
             }
         }.collect {
+            onSuccess?.invoke()
             outputLiveData.value = Resource.success(it)
         }
 }
@@ -78,18 +80,18 @@ fun <T> observeApiError(resources: Resource<T>?): ApiError {
         is NoConnectionException -> {
             return ApiError(
                 0,
+                true,
                 ErrorCode.ERROR_NO_CONNECTION,
-                ContextProvider.get().getString(R.string.error_no_connection),
-                status = false
+                ContextProvider.get().getString(R.string.error_no_connection)
             )
         }
         else -> {
             resource.throwable?.printStackTrace()
             return ApiError(
                 0,
+                true,
                 ErrorCode.ERROR_UNABLE_TO_REACH_SERVICE,
-                ContextProvider.get().getString(R.string.error_unable_to_connect),
-                status = false
+                ContextProvider.get().getString(R.string.error_unable_to_connect)
             )
         }
     }
