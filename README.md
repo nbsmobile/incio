@@ -63,7 +63,7 @@ This template includes:
 <img width="659" alt="Screen Shot 2023-02-03 at 7 08 19 PM" src="https://user-images.githubusercontent.com/55146646/216588897-952285ad-6677-4812-9002-dc5b9ccc661c.png">
 
 ## <a name="domain-to-presentation"></a> Domain to Presentation
-In Android, Because both `shared` and `mangaku-android` written in Kotlin, we can simply collect flow :
+In Android, Because both `shared` and `androidApp` written in Kotlin, we can simply collect flow :
 ```
 fun getRocketLaunches() = viewModelScope.launch {
    _rocketLaunchResults.value = Resource.loading()
@@ -127,7 +127,7 @@ actual fun getRequestHash(): String {
 [**`iosMain/Platform.kt`**](oke)
 
 ```
-override fun getRequestHash(): String {
+actual fun getRequestHash(): String {
   val key = "NBS KMM Sample"
   val timestamp = NSDate().timeIntervalSince1970.toLong().toString()
   val hash = (timestamp as NSString).sha256Hmac(key = key)
