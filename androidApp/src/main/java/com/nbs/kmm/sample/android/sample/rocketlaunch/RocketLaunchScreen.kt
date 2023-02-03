@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.rocketlaunch
+package com.nbs.kmm.sample.android.sample.rocketlaunch
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize

@@ -16,6 +16,8 @@ protocol WrappedView: View {
   var holder: WrapperHolder { get set }
 
   func configureNavigationBar(viewController: UIViewController)
+  func rightNavigationBarButtonTapped()
+  func leftNavigationBarButtonTapped()
 }
 
 extension WrappedView {
@@ -28,12 +30,28 @@ extension WrappedView {
   func configureNavigationBar(viewController: UIViewController) {
 
   }
+
+  func rightNavigationBarButtonTapped() {
+
+  }
+
+  func leftNavigationBarButtonTapped() {
+    
+  }
 }
 
 class ViewWrapper<SomeView>: UIHostingController<SomeView> where SomeView: WrappedView {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.rootView.configureNavigationBar(viewController: self)
+  }
+
+  override func rightNavigationBarButtonTapped(sender: UIBarButtonItem?) {
+    self.rootView.rightNavigationBarButtonTapped()
+  }
+
+  override func leftNavigationBarButtonTapped(sender: UIBarButtonItem?) {
+    self.rootView.leftNavigationBarButtonTapped()
   }
 }
 

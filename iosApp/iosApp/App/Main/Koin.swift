@@ -23,7 +23,10 @@ extension KoinApplication {
 extension KoinApplication {
   private static let keyPaths: [PartialKeyPath<Koin>] = [
     \.rocketLaunchUseCase,
-    \.preferenceManager
+    \.storyUseCase,
+    \.accountManager,
+    \.preferenceManager,
+    \.membershipUseCase
   ]
 
   static func inject<T>() -> T {

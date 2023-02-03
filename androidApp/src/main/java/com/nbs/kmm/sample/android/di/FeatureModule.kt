@@ -1,6 +1,6 @@
 package com.nbs.kmm.sample.android.di
 
-import com.nbs.kmm.sample.android.rocketlaunch.RocketLaunchViewModel
+import com.nbs.kmm.sample.android.sample.rocketlaunch.RocketLaunchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

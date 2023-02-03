@@ -7,7 +7,6 @@
 
 import UIKit
 import netfox
-import SDWebImageSwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   private let assembler = AppAssembler()
 
-  private lazy var navigator: RocketLaunchNavigator = {
+  private lazy var navigator: MembershipNavigator = {
     assembler.resolve()
   }()
 
@@ -27,22 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     setupEnvironment()
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    navigator.navigateToRocketLaunch(window: window)
+    if SessionManager.isLoggedIn() {
+      navigator.navigateToStory(window: window)
+    } else {
+      navigator.navigateToLogin(window: window)
+    }
     window?.makeKeyAndVisible()
 
     return true
   }
 
-
   func setupEnvironment() {
     print("versi \(getVersion())")
+    NFX.sharedInstance().start()
   }
 
   func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-          return self.orientationLock
+    return self.orientationLock
   }
-
-
 }
 
 func getVersion() -> String {
