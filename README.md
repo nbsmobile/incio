@@ -2,7 +2,9 @@
 
 ## <a name="introduction"></a> Introduction
 
-The goal of this Template is to be our starting point for new projects, following the best development practices. It's our interpretation and adaptation of years in mobile development that we have implemented in our internal codebases for all kind of Mobile Projects.  
+The goal of this Template is to be our starting point for new projects, following the best
+development practices. It's our interpretation and adaptation of years in mobile development that we
+have implemented in our internal codebases for all kind of Mobile Projects.
 
 **Module**
 
@@ -20,41 +22,44 @@ The goal of this Template is to be our starting point for new projects, followin
 - [Domain to Presentation](#domain-to-presentation)
 - [Expect and Actual](#expect-actual)
 - [Project Structure](#project-structure)
+- [Build Config](#build-config)
 
 ## <a name="architecture"></a> Architecture
-<img width="666" alt="Screen Shot 2023-02-03 at 9 13 05 PM" src="https://user-images.githubusercontent.com/55146646/216612133-81c9544a-96d5-4d2d-9141-c10c02120b3e.png">
 
+<img width="666" alt="Screen Shot 2023-02-03 at 9 13 05 PM" src="https://user-images.githubusercontent.com/55146646/216612133-81c9544a-96d5-4d2d-9141-c10c02120b3e.png">
 
 ## <a name="features"></a> Features
 
 This template includes:
 
 * Expect actual implementation
-  - Cryptography SHA 256
+    - Cryptography SHA 256
 
-* Networking : 
-  - HTTP GET
-  - HTTP POST
-  - HTTP POST Multipart/Form-Data [Viky] 
-  - Authenticator
-  - HTTP Error Handler
+* Networking :
+    - HTTP GET
+    - HTTP POST
+    - HTTP POST Multipart/Form-Data
+    - Authenticator
+    - HTTP Error Handler
 
 * Database
-  - Create
-  - Read
-  - Delete
+    - Create
+    - Read
+    - Delete
 
 * Preference
-  - Read
-  - Update
+    - Read
+    - Update
 
 ## <a name="installation"></a> Installation
 
-- Follow the [KMM Guide by Jetbrains](https://kotlinlang.org/docs/kmm-overview.html) for getting started building a project with KMM.
+- Follow the [KMM Guide by Jetbrains](https://kotlinlang.org/docs/kmm-overview.html) for getting
+  started building a project with KMM.
 - Install Kotlin Multiplatform Mobile plugin in Android Studio
 - Clone or Download the repo
 - Rebuild Project
-- To run in iOS, Open Xcode, select `.xcworkspace`, then `pod install` inside `iosApp` folder to install shared module and ios dependencies
+- To run in iOS, Open Xcode, select `.xcworkspace`, then `pod install` inside `iosApp` folder to
+  install shared module and ios dependencies
 
 <!-- **Development Keys**: The `apiKey` in [`utils/Constants.kt`](https://code.nbs.dev/nbs-mobile/kmm-movie-db/-/blob/main/core/src/commonMain/kotlin/com/uwaisalqadri/moviecatalogue/utils/Constants.kt) are generated from [TMDB](https://www.themoviedb.org/), generate your own in [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api). -->
 
@@ -63,7 +68,9 @@ This template includes:
 <img width="659" alt="Screen Shot 2023-02-03 at 7 08 19 PM" src="https://user-images.githubusercontent.com/55146646/216588897-952285ad-6677-4812-9002-dc5b9ccc661c.png">
 
 ## <a name="domain-to-presentation"></a> Domain to Presentation
+
 In Android, Because both `shared` and `androidApp` written in Kotlin, we can simply collect flow :
+
 ```
 fun getRocketLaunches() = viewModelScope.launch {
    _rocketLaunchResults.value = Resource.loading()
@@ -74,7 +81,8 @@ fun getRocketLaunches() = viewModelScope.launch {
 
 ```
 
-But in iOS, we have to deal with swift, here i'm using `createPublisher()` from `KMPNativeCoroutines` to collect flow as Publisher in `Combine` :
+But in iOS, we have to deal with swift, here i'm using `createPublisher()`
+from `KMPNativeCoroutines` to collect flow as Publisher in `Combine` :
 
 ```
 func getRocketLaunches() {
@@ -87,19 +95,24 @@ func getRocketLaunches() {
 
 ```
 
-both `proceed()` and `viewStatePublisher(for: , in:)` are the same logic under the hood, to handle general error, reactively retrying the function, etc.
- 
+both `proceed()` and `viewStatePublisher(for: , in:)` are the same logic under the hood, to handle
+general error, reactively retrying the function, etc.
+
 learn more: https://github.com/rickclephas/KMP-NativeCoroutines
 
 ## <a name="expect-actual"></a> Expect and Actual
-in KMM, there is a negative case when there's no support to share code for some feature in both ios and android, and it's expensive to write separately in each module
 
-so the solution is ✨`expect` and `actual`✨, we can write `expect` inside `commonMain` and write "actual" implementation with `actual` inside `androidMain` and `iosMain`
+in KMM, there is a negative case when there's no support to share code for some feature in both ios
+and android, and it's expensive to write separately in each module
+
+so the solution is ✨`expect` and `actual`✨, we can write `expect` inside `commonMain` and write "
+actual" implementation with `actual` inside `androidMain` and `iosMain`
 and then each module will use `expect`
 
 example:
 
 [**`commonMain/Platform.kt`**](oke)
+
 ```
 expect fun getRequestHash(): String
 ```
@@ -153,49 +166,88 @@ fun NSString.sha256Hmac(algorithm: CCHmacAlgorithm = kCCHmacAlgSHA256, key: Stri
 yes, we can use `Foundation`, `CoreCrypto`, `CoreFoundation` same as what we use in Xcode
 
 ## <a name="project-structure"></a> Project Structure
+
 **`shared`**:
 
 * `base`
 * `cache`
 * `data`
-  - `sample`
-    - `model`
-          - `response`
-          - `request`
-    - `remote`
-          - `SampleApi`
-          - `SampleApiClient`
+    - `sample`
+        - `model`
+            - `response`
+            - `request`
+        - `remote`
+            - `SampleApi`
+            - `SampleApiClient`
 * `di`
-  - `ios`
-  - `feature`
+    - `ios`
+    - `feature`
 * `domain`
-  - `sample`
-    - `model`
-    - `mapper`
-    - `SampleInteractor`
-    - `SampleUseCase`
+    - `sample`
+        - `model`
+        - `mapper`
+        - `SampleInteractor`
+        - `SampleUseCase`
 * `utils`
- - `enum`
- - `eventbus`
- - `ext`
+
+- `enum`
+- `eventbus`
+- `ext`
 
 **`androidApp`**:
- - `base`
- - `di`
- - `sample`
- - `theme`
- - `utils`
 
-**`iosApp`**: 
- - `Dependency`
- - `App`
- - `Main`
- - `Resources`
- - `ReusableView`
- - `Extensions`
- - `Utils`
- - `Features`
+- `base`
+- `di`
+- `sample`
+- `theme`
+- `utils`
+
+**`iosApp`**:
+
+- `Dependency`
+- `App`
+- `Main`
+- `Resources`
+- `ReusableView`
+- `Extensions`
+- `Utils`
+- `Features`
     - `Sample`
         - `Navigator`
         - `Views`
         - `ViewModel`
+
+## <a name="build_config"></a> Build Config
+
+You can setup Build Config for multiple Environment, Just add your build configuration at
+build.gradle on `shared` in the `buildkonfig` section like this:
+
+```
+buildkonfig {
+    packageName = "com.nbs.kmm.sample"
+    objectName = "NbsKmmSharedConfig"
+    exposeObjectWithName = "NbsKmmSharedPublicConfig"
+
+    // default config is required
+    defaultConfigs {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+
+    // config for staging
+    defaultConfigs("staging") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+
+    // config for release
+    defaultConfigs("release") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+}
+```
+
+And for changing the Environment just set it on gradle properties
+with `buildkonfig.flavor` and assign the value with the Environment name that you want to use, but for
+default config just let the `buildkonfig.flavor` value to empty

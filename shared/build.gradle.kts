@@ -34,6 +34,18 @@ buildkonfig {
         buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
         buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
     }
+
+    // config for staging
+    defaultConfigs("staging") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
+
+    // config for release
+    defaultConfigs("release") {
+        buildConfigField(STRING, "BASE_URL", "story-api.dicoding.dev")
+        buildConfigField(STRING, "BASE_URL_SPACEX", "api.spacexdata.com")
+    }
 }
 
 kotlin {
