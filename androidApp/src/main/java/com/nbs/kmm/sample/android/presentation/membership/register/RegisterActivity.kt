@@ -22,7 +22,7 @@ class RegisterActivity : SampleBaseActivity<ActivityRegisterBinding>() {
         }
     }
 
-    private val vm: MembershipViewModel by viewModel()
+    private val membershipViewModel: MembershipViewModel by viewModel()
 
     override fun getViewBinding() = ActivityRegisterBinding.inflate(layoutInflater)
 
@@ -38,7 +38,7 @@ class RegisterActivity : SampleBaseActivity<ActivityRegisterBinding>() {
             val confirmPassword = binding.edtConfirmPassword.text?.trim().toString()
 
             if (validate(userName, email, password, confirmPassword)) {
-                vm.register(userName, email, password)
+                membershipViewModel.register(userName, email, password)
             }
         }
     }
@@ -46,7 +46,7 @@ class RegisterActivity : SampleBaseActivity<ActivityRegisterBinding>() {
     override fun initProses() {}
 
     override fun initObservers() {
-        vm.registerResult.observe(this) {
+        membershipViewModel.registerResult.observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     showLoading()

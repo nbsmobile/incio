@@ -25,7 +25,9 @@ class MembershipInteractor(
 
     override suspend fun login(email: String, password: String): Flow<Login> {
         return execute(context = Dispatchers.Main) {
-            val response = membershipRepository.login(LoginRequest(email = email, password = password)).toDomain()
+            val response =
+                membershipRepository.login(LoginRequest(email = email, password = password))
+                    .toDomain()
             handleToken(response)
             response
         }

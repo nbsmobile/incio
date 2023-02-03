@@ -9,7 +9,7 @@ import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
-class MembershipApi(private val httpClient: HttpClient): MembershipApiClient {
+class MembershipApi(private val httpClient: HttpClient) : MembershipApiClient {
     override suspend fun register(registerRequest: RegisterRequest): RegisterResponse {
         return httpClient.post("register") {
             contentType(ContentType.Application.Json)

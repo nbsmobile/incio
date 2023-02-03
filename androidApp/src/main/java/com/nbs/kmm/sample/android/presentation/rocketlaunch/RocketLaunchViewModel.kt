@@ -1,4 +1,4 @@
-package com.nbs.kmm.sample.android.sample.rocketlaunch
+package com.nbs.kmm.sample.android.presentation.rocketlaunch
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,6 +31,7 @@ class RocketLaunchViewModel(
 
     fun getRocketLaunches() = viewModelScope.launch {
         _rocketLaunchResults.value = Resource.loading()
+        _removeRocketLaunchResult.value = Resource.default()
         proceed(_rocketLaunchResults) {
             rocketLaunchUseCase.getRocketLaunches()
         }
@@ -38,7 +39,9 @@ class RocketLaunchViewModel(
 
     fun removeRocketLaunches() = viewModelScope.launch {
         _removeRocketLaunchResult.value = Resource.loading()
-        proceed(_removeRocketLaunchResult) {
+        proceed(_removeRocketLaunchResult, onSuccess = {
+            _rocketLaunchResults.value = Resource.default()
+        }) {
             rocketLaunchUseCase.removeRocketLaunches()
         }
     }

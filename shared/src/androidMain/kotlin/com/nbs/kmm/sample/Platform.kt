@@ -10,8 +10,9 @@ import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings
 import com.squareup.sqldelight.db.SqlDriver
 import io.ktor.client.*
+import io.ktor.client.engine.cio.*
 import io.ktor.client.engine.okhttp.*
-import org.json.JSONObject
+import io.ktor.http.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.nio.charset.Charset
@@ -24,13 +25,14 @@ class AndroidPlatform : Platform, KoinComponent {
 
     override val name: String = "Android ${android.os.Build.VERSION.SDK_INT}"
 
-    override fun getHttpClientEngine(): HttpClient {
-        return HttpClient(OkHttp){
+    override fun getHttpClientEngine(forMultipartData: Boolean): HttpClient {
+        return if (forMultipartData) HttpClient(CIO) else HttpClient(OkHttp) {
             engine {
                 config {
+                    retryOnConnectionFailure(true)
                     followRedirects(true)
                 }
-                if (isDebugMode()){
+                if (isDebugMode()) {
                     addInterceptor(ChuckerInterceptor.Builder(context).build())
                 }
             }

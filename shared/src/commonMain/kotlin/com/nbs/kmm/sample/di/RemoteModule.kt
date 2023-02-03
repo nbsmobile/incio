@@ -12,6 +12,7 @@ import org.koin.dsl.module
 const val BASE_URL = "base_url"
 const val BASE_URL_SPACEX = "base_url_spacex"
 const val NETWORK_CLIENT = "shared_network_client"
+const val NETWORK_CLIENT_MULTIPART = "shared_network_client_multipart"
 const val NETWORK_CLIENT_SPACEX = "shared_network_client_spacex"
 
 @ExperimentalSerializationApi
@@ -33,6 +34,18 @@ val remoteModule = module {
             isDebugMode = getPlatform().isDebugMode(),
             accountManager = get(),
             httpClientProvider = getPlatform().getHttpClientEngine()
+        )
+    }
+
+    single(named(NETWORK_CLIENT_MULTIPART)) {
+        setupHttpClient(
+            json = get(),
+            baseUrl = get(named(BASE_URL)),
+            apiVersion = "v1/",
+            kermitLogger = get(),
+            isDebugMode = getPlatform().isDebugMode(),
+            accountManager = get(),
+            httpClientProvider = getPlatform().getHttpClientEngine(true)
         )
     }
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".sample.preference.PreferenceDemoActivity">
+    tools:context=".presentation.preference.PreferenceDemoActivity">
     <EditText
         android:id="@+id/edt_query"
         android:layout_width="match_parent"

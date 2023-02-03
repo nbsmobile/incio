@@ -22,23 +22,29 @@
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".presentation.reuse.camera.CameraActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.post.PostStoryActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.membership.register.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.membership.login.LoginActivity"
-            android:screenOrientation="portrait"
-            android:exported="true" >
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,17 +53,11 @@
         </activity>
 
         <activity
-            android:name=".presentation.main.MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:name=".presentation.preference.PreferenceDemoActivity"
+            android:exported="false"></activity>
 
         <activity
-            android:name=".sample.preference.PreferenceDemoActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".sample.rocketlaunch.RocketLaunchActivity"
+            android:name=".presentation.rocketlaunch.RocketLaunchActivity"
             android:exported="false" />
     </application>
 </manifest> 

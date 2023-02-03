@@ -68,9 +68,9 @@ fun setupHttpClient(
         }
 
         install(HttpTimeout) {
-            this.requestTimeoutMillis = 60000
-            this.connectTimeoutMillis = 60000
-            this.socketTimeoutMillis = 60000
+            this.requestTimeoutMillis = 600000
+            this.connectTimeoutMillis = 600000
+            this.socketTimeoutMillis = 600000
         }
 
         HttpResponseValidator {

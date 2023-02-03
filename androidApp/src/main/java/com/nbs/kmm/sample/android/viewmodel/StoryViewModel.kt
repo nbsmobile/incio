@@ -16,12 +16,16 @@ class StoryViewModel(
     private val useCase: StoryUseCase,
     disposable: CompositeDisposable
 ) : BaseViewModel(disposable) {
+
     private val _storyResult: MutableLiveData<Resource<List<Story>>> = MutableLiveData()
     val storyResult: LiveData<Resource<List<Story>>> get() = _storyResult
 
+    private val _uploadStoryResult: MutableLiveData<Resource<Boolean>> = MutableLiveData()
+    val uploadStoryResult: LiveData<Resource<Boolean>> get() = _uploadStoryResult
 
     init {
         _storyResult.value = Resource.default()
+        _uploadStoryResult.value = Resource.default()
     }
 
     fun fetchStories(
@@ -32,6 +36,16 @@ class StoryViewModel(
         _storyResult.value = Resource.loading()
         proceed(_storyResult) {
             useCase.getAllStories(GetStoryParam(page, size, isIncludeLocation))
+        }
+    }
+
+    fun uploadStory(
+        file: ByteArray,
+        description: String
+    ) = viewModelScope.launch {
+        _uploadStoryResult.value = Resource.loading()
+        proceed(_uploadStoryResult) {
+            useCase.uploadStory(file, description)
         }
     }
 }

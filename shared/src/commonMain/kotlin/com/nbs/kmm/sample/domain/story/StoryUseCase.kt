@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface StoryUseCase {
     suspend fun getAllStories(storyParam: GetStoryParam): Flow<List<Story>>
+    suspend fun uploadStory(file: ByteArray, description: String): Flow<Boolean>
 }

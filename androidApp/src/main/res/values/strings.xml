@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NBS Kmm Android Sample</string>
+    <string name="app_name">NBS KMM Inicio Android</string>
     <string name="error_no_connection">Tidak ada koneksi internet, mohon cek internet Anda</string>
     <string name="error_unable_to_connect">Mohon maaf, saat ini aplikasi tidak bisa terhubung ke server</string>
     <string name="label_login">Masuk</string>
@@ -27,5 +27,10 @@
     <string name="error_confirm_password_is_not_same">Password tidak sama</string>
     <string name="hint_input_email">Masukkan email</string>
     <string name="hint_input_description">Masukkan Deskripsi</string>
+    <string name="upload_success">Upload Success</string>
+    <string name="login_success">Login Success</string>
+    <string name="remove_all_launch_success">Remove all launches success</string>
+    <string name="get_all_rocket_launches">Get All Rocket Launches</string>
+    <string name="remove_all_rocket_launches_from_database">Remove All Launches from Database</string>
 
 </resources>

@@ -3,7 +3,7 @@ package com.nbs.kmm.sample.android.presentation.main
 import android.content.Context
 import android.content.Intent
 import com.nbs.kmm.sample.android.base.SampleBaseActivity
-import com.nbs.kmm.sample.android.databinding.ActivityMainBinding
+import com.nbs.kmm.sample.android.databinding.ActivityStoryListBinding
 import com.nbs.kmm.sample.android.presentation.membership.login.LoginActivity
 import com.nbs.kmm.sample.android.presentation.post.PostStoryActivity
 import com.nbs.kmm.sample.android.utils.data.Resource
@@ -14,21 +14,21 @@ import com.nbs.kmm.sample.domain.account.AccountManager
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : SampleBaseActivity<ActivityMainBinding>() {
+class StoryListActivity : SampleBaseActivity<ActivityStoryListBinding>() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            context.startActivity(Intent(context, MainActivity::class.java))
+            context.startActivity(Intent(context, StoryListActivity::class.java))
         }
     }
 
     private val storyAdapter by lazy { StoryAdapter {} }
 
-    private val vm: StoryViewModel by viewModel()
+    private val storyViewModel: StoryViewModel by viewModel()
 
     private val accountManager: AccountManager by inject()
 
-    override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
+    override fun getViewBinding() = ActivityStoryListBinding.inflate(layoutInflater)
 
     override fun initIntent() {}
 
@@ -41,18 +41,18 @@ class MainActivity : SampleBaseActivity<ActivityMainBinding>() {
     override fun initAction() {
         with(binding) {
             layoutToolbar.btnAddStory.setOnClickListener {
-                PostStoryActivity.start(this@MainActivity)
+                PostStoryActivity.start(this@StoryListActivity)
             }
 
             layoutToolbar.btnLogout.setOnClickListener {
                 showAlertDialog(
-                    context = this@MainActivity,
+                    context = this@StoryListActivity,
                     title = "Logout",
                     message = "Apakah kamu yakin ingin logout?",
                     positive = "Logout",
                     positiveListener = {
                         accountManager.logout()
-                        LoginActivity.start(this@MainActivity)
+                        LoginActivity.start(this@StoryListActivity)
                         finishAffinity()
                     },
                     negative = "Tidak",
@@ -63,11 +63,11 @@ class MainActivity : SampleBaseActivity<ActivityMainBinding>() {
     }
 
     override fun initProses() {
-        vm.fetchStories(1, 20, false)
+        storyViewModel.fetchStories(1, 20, false)
     }
 
     override fun initObservers() {
-        vm.storyResult.observe(this) {
+        storyViewModel.storyResult.observe(this) {
             when (it) {
                 is Resource.Loading -> {
                     showLoading()
@@ -84,5 +84,10 @@ class MainActivity : SampleBaseActivity<ActivityMainBinding>() {
                 else -> {}
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        storyViewModel.fetchStories(1, 20, false)
     }
 }
