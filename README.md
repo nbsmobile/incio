@@ -25,8 +25,7 @@ have implemented in our internal codebases for all kind of Mobile Projects.
 - [Build Config](#build-config)
 
 ## <a name="architecture"></a> Architecture
-
-<img width="666" alt="Screen Shot 2023-02-03 at 9 13 05 PM" src="https://user-images.githubusercontent.com/55146646/216612133-81c9544a-96d5-4d2d-9141-c10c02120b3e.png">
+<img width="669" alt="Screen Shot 2023-02-04 at 12 19 59 PM" src="https://user-images.githubusercontent.com/55146646/216748266-75110db9-2bec-41aa-9e21-6cb0f477a961.png">
 
 ## <a name="features"></a> Features
 
@@ -111,13 +110,13 @@ and then each module will use `expect`
 
 example:
 
-[**`commonMain/Platform.kt`**](oke)
+[**`commonMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/commonMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
 ```
 expect fun getRequestHash(): String
 ```
 
-[**`commonMain/Platform.kt`**](ppp)
+[**`androidMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/androidMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
 ```
 actual fun getRequestHash(): String {
@@ -137,7 +136,7 @@ actual fun getRequestHash(): String {
 
 ```
 
-[**`iosMain/Platform.kt`**](oke)
+[**`iosMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/iosMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
 ```
 actual fun getRequestHash(): String {
@@ -248,6 +247,6 @@ buildkonfig {
 }
 ```
 
-And for changing the Environment just set it on gradle properties
-with `buildkonfig.flavor` and assign the value with the Environment name that you want to use, but for
-default config just let the `buildkonfig.flavor` value to empty
+And for changing the Environment just set it on `gradle.properties`
+with `buildkonfig.flavor` and assign the value with the Environment name that you want to use, for
+default config just let the `buildkonfig.flavor` value to be empty

@@ -26,11 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     setupEnvironment()
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    if SessionManager.isLoggedIn() {
-      navigator.navigateToStory(window: window)
-    } else {
-      navigator.navigateToLogin(window: window)
-    }
+    navigator.navigateToMain(window: window)
     window?.makeKeyAndVisible()
 
     return true

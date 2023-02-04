@@ -50,6 +50,8 @@ struct LoginView: WrappedView {
             .padding(.vertical, 10)
             .padding(.horizontal, 12)
             .keyboardType(.emailAddress)
+            .autocorrectionDisabled(true)
+            .autocapitalization(.none)
             .overlay(RoundedRectangle(cornerRadius: 8)
               .stroke(Color.gray, lineWidth: 1)
             )
@@ -66,6 +68,8 @@ struct LoginView: WrappedView {
               .font(.callout)
               .padding(.vertical, 10)
               .padding(.horizontal, 12)
+              .autocorrectionDisabled(true)
+              .autocapitalization(.none)
               .overlay(RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.gray, lineWidth: 1)
               )
@@ -132,7 +136,7 @@ struct LoginView: WrappedView {
         navigator.navigateToStory(window: viewController.view.window)
       },
       onFailed: { error in
-        errorValue = error.localizedDescription
+        errorValue = error.apiError?.errorMessage ?? ""
         print("Error: \(error.localizedDescription)")
       }
     )
