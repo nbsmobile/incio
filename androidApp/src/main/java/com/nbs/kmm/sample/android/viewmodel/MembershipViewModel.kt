@@ -2,20 +2,18 @@ package com.nbs.kmm.sample.android.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nbs.kmm.sample.android.base.BaseViewModel
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.proceed
 import com.nbs.kmm.sample.domain.membership.MembershipUseCase
 import com.nbs.kmm.sample.domain.membership.model.Login
 import com.nbs.kmm.sample.domain.membership.model.RegisterParam
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 
 class MembershipViewModel(
     private val useCase: MembershipUseCase,
-    disposable: CompositeDisposable
-) : BaseViewModel(disposable) {
+) : ViewModel() {
     private val _loginResult: MutableLiveData<Resource<Login>> = MutableLiveData()
     val loginResult: LiveData<Resource<Login>> get() = _loginResult
 

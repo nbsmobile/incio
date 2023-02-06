@@ -7,9 +7,9 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val featureModule = module {
-    viewModel { RocketLaunchViewModel(get(), get()) }
+    viewModel { RocketLaunchViewModel(get()) }
 
-    viewModel { MembershipViewModel(get(), get()) }
+    viewModel { MembershipViewModel(get()) }
 
-    viewModel { StoryViewModel(get(), get()) }
+    viewModel { StoryViewModel(get()) }
 }

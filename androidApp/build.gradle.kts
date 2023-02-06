@@ -66,10 +66,6 @@ dependencies {
     //timber
     implementation("com.jakewharton.timber:timber:4.7.1")
 
-    //rxjava
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-
     //gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.appcompat:appcompat:1.6.0")

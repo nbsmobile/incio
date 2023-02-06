@@ -2,19 +2,17 @@ package com.nbs.kmm.sample.android.presentation.rocketlaunch
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nbs.kmm.sample.android.base.BaseViewModel
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.proceed
 import com.nbs.kmm.sample.domain.rocketlaunch.RocketLaunchUseCase
 import com.nbs.kmm.sample.domain.rocketlaunch.model.RocketLaunch
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 
 class RocketLaunchViewModel(
     private val rocketLaunchUseCase: RocketLaunchUseCase,
-    disposable: CompositeDisposable
-) : BaseViewModel(disposable) {
+) : ViewModel() {
 
     private val _rocketLaunchResults: MutableLiveData<Resource<List<RocketLaunch>>> =
         MutableLiveData()

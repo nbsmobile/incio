@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.nbs.kmm.sample.android.di.featureModule
-import com.nbs.kmm.sample.android.di.rxModule
 import com.nbs.kmm.sample.android.di.utilityModule
 import com.nbs.kmm.sample.android.utils.ContextProvider
 import com.nbs.kmm.sample.base.CoreApplication
@@ -22,7 +21,6 @@ class BaseApplication : Application() {
             androidContext(applicationContext)
             modules(
                 listOf(
-                    rxModule,
                     utilityModule,
                     featureModule
                 )
