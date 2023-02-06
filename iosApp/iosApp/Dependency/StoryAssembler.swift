@@ -26,7 +26,7 @@ extension StoryAssembler where Self: Assembler {
   }
 
   func resolve() -> AddStoryView {
-    return AddStoryView(holder: resolve())
+    return AddStoryView(holder: resolve(), viewModel: resolve())
   }
 
   func resolve() -> StoryViewModel {

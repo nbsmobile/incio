@@ -21,22 +21,13 @@ class RocketLaunchViewModel: ObservableObject {
 
   private var cancellables = Set<AnyCancellable>()
 
-  func getRocketLaunches() {
+  func fetchRocketLaunches() {
     rocketLaunch = .loading
     viewStatePublisher(
       for: rocketLaunchUseCase.getRocketLaunchesNative(),
       in: &cancellables
     ) { self.rocketLaunch = $0 }
   }
-
-  func getAllStories(storyParam: GetStoryParam) {
-    stories = .loading
-    viewStatePublisher(
-      for: storyUseCase.getAllStoriesNative(storyParam: storyParam),
-      in: &cancellables
-    ) { self.stories = $0 }
-  }
-
 
   func doRemoveRocketLaunches() {
     removeRocketLaunch = .loading
