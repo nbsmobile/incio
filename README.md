@@ -70,7 +70,7 @@ This template includes:
 
 In Android, Because both `shared` and `androidApp` written in Kotlin, we can simply collect flow :
 
-```
+```kotlin
 fun getRocketLaunches() = viewModelScope.launch {
    _rocketLaunchResults.value = Resource.loading()
    proceed(_rocketLaunchResults) {
@@ -83,7 +83,7 @@ fun getRocketLaunches() = viewModelScope.launch {
 But in iOS, we have to deal with swift, here i'm using `createPublisher()`
 from `KMPNativeCoroutines` to collect flow as Publisher in `Combine` :
 
-```
+```swift
 func getRocketLaunches() {
    rocketLaunch = .loading
    viewStatePublisher(
@@ -112,13 +112,13 @@ example:
 
 [**`commonMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/commonMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
-```
+```kotlin
 expect fun getRequestHash(): String
 ```
 
 [**`androidMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/androidMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
-```
+```kotlin
 actual fun getRequestHash(): String {
   val key: String = "NBS KMM Sample"
   val timestamp = (System.currentTimeMillis() / 1000).toString()
@@ -138,7 +138,7 @@ actual fun getRequestHash(): String {
 
 [**`iosMain/Platform.kt`**](https://github.com/nbsmobile/incio/blob/master/shared/src/iosMain/kotlin/com/nbs/kmm/sample/Platform.kt)
 
-```
+```kotlin
 actual fun getRequestHash(): String {
   val key = "NBS KMM Sample"
   val timestamp = NSDate().timeIntervalSince1970.toLong().toString()
@@ -221,7 +221,7 @@ yes, we can use `Foundation`, `CoreCrypto`, `CoreFoundation` same as what we use
 You can setup Build Config for multiple Environment, Just add your build configuration at
 build.gradle on `shared` in the `buildkonfig` section like this:
 
-```
+```kotlin
 buildkonfig {
     packageName = "com.nbs.kmm.sample"
     objectName = "NbsKmmSharedConfig"
