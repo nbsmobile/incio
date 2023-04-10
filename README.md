@@ -52,7 +52,7 @@ This template includes:
 
 ## <a name="installation"></a> Installation
 
-- Follow the [KMM Guide by Jetbrains](https://kotlinlang.org/docs/kmm-overview.html) for getting
+- Follow the [KMM Guide by Jetbrains](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) for getting
   started building a project with KMM.
 - Install Kotlin Multiplatform Mobile plugin in Android Studio
 - Clone or Download the repo
