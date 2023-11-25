@@ -1,31 +1,29 @@
-@file:Suppress("UnstableApiUsage")
-
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
-    kotlin("plugin.serialization") version "1.7.20"
+    kotlin("plugin.serialization") version "1.9.0"
     id("com.android.library")
-    id("com.google.devtools.ksp") version "1.7.20-1.0.7"
+    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
     id("com.squareup.sqldelight")
     id("koin")
-    id("com.rickclephas.kmp.nativecoroutines") version "0.13.1"
+    id("com.rickclephas.kmp.nativecoroutines") version "0.13.3"
     id("dev.icerock.moko.kswift") version "0.6.0"
-    id("com.codingfeline.buildkonfig") version "+"
+    id("com.codingfeline.buildkonfig") version "0.15.0"
 }
 
 // cocoapods version
 version = "1.0"
 
 val koinVersion = "3.2.0"
-val ktorVersion = "2.2.1"
+val ktorVersion = "2.3.5"
 val reaktiveVersion = "1.2.2"
 val sqlDelightVersion = "1.5.4"
 val statelyVersion = "1.2.2"
 
 buildkonfig {
-    packageName = "com.nbs.kmm.sample"
+    packageName = "com.nbs.kmm.shared"
     objectName = "NbsKmmSharedConfig"
     exposeObjectWithName = "NbsKmmSharedPublicConfig"
 
@@ -69,8 +67,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                 implementation("io.insert-koin:koin-core:$koinVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
@@ -116,7 +114,7 @@ kotlin {
                 implementation("net.zetetic:android-database-sqlcipher:4.5.3")
             }
         }
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
@@ -156,11 +154,11 @@ kswift {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "com.nbs.kmm.sample"
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -170,9 +168,14 @@ android {
             execution = "ANDROIDX_TEST_ORCHESTRATOR"
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     dependencies {

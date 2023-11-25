@@ -11,7 +11,7 @@ import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.showAlertDialog
 import com.nbs.kmm.sample.android.utils.util.showErrorAlert
 import com.nbs.kmm.sample.android.viewmodel.StoryViewModel
-import com.nbs.kmm.sample.domain.account.AccountManager
+import com.nbs.kmm.shared.domain.account.AccountManager
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

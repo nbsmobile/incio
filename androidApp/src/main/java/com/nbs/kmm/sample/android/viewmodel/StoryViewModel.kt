@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.nbs.kmm.sample.android.base.BaseViewModel
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.proceed
-import com.nbs.kmm.sample.domain.story.StoryUseCase
-import com.nbs.kmm.sample.domain.story.model.GetStoryParam
-import com.nbs.kmm.sample.domain.story.model.Story
+import com.nbs.kmm.shared.domain.story.StoryUseCase
+import com.nbs.kmm.shared.domain.story.model.GetStoryParam
+import com.nbs.kmm.shared.domain.story.model.Story
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 

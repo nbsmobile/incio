@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.nbs.kmm.sample.android.databinding.ActivityPreferenceDemoBinding
-import com.nbs.kmm.sample.data.preference.PreferenceManager
-import com.nbs.kmm.sample.utils.emptyString
+import com.nbs.kmm.shared.data.preference.PreferenceManager
+import com.nbs.kmm.shared.utils.emptyString
 import org.koin.android.ext.android.inject
 
 class PreferenceDemoActivity : AppCompatActivity() {

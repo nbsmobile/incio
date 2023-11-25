@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.nbs.kmm.sample.android.base.BaseViewModel
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.proceed
-import com.nbs.kmm.sample.domain.rocketlaunch.RocketLaunchUseCase
-import com.nbs.kmm.sample.domain.rocketlaunch.model.RocketLaunch
+import com.nbs.kmm.shared.domain.rocketlaunch.RocketLaunchUseCase
+import com.nbs.kmm.shared.domain.rocketlaunch.model.RocketLaunch
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 

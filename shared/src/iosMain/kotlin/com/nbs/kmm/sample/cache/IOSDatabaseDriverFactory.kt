@@ -1,11 +1,13 @@
 package com.nbs.kmm.sample.cache
 
 import co.touchlab.sqliter.DatabaseConfiguration
+import com.nbs.kmm.shared.cache.DatabaseDriverFactory
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 import com.squareup.sqldelight.drivers.native.wrapConnection
 
-class IOSDatabaseDriverFactory(private val dbName: String, private val passphrase: String) : DatabaseDriverFactory {
+class IOSDatabaseDriverFactory(private val dbName: String, private val passphrase: String) :
+    DatabaseDriverFactory {
     override fun createDriver(): SqlDriver {
         val configuration = DatabaseConfiguration(
             name = dbName,

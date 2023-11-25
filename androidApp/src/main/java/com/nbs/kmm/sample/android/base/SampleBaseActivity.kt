@@ -10,8 +10,8 @@ import com.badoo.reaktive.observable.observeOn
 import com.badoo.reaktive.observable.subscribe
 import com.badoo.reaktive.scheduler.mainScheduler
 import com.nbs.kmm.sample.android.presentation.reuse.CustomSampleLoading
-import com.nbs.kmm.sample.utils.eventbus.Event
-import com.nbs.kmm.sample.utils.eventbus.EventBus
+import com.nbs.kmm.shared.utils.eventbus.Event
+import com.nbs.kmm.shared.utils.eventbus.EventBus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -7,11 +7,11 @@ plugins {
 
 android {
     namespace = "com.nbs.kmm.sample.android"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         applicationId = "com.nbs.kmm.sample.android"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
@@ -20,12 +20,14 @@ android {
         viewBinding = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -39,6 +41,24 @@ android {
 
         getByName("release") {
             isMinifyEnabled = false
+        }
+    }
+    flavorDimensions.add("env")
+    productFlavors {
+        create("dev") {
+            dimension = "env"
+            applicationIdSuffix = ".dev"
+//            signingConfig = signingConfigs.getByName("debug")
+        }
+        create("staging") {
+            dimension = "env"
+            applicationIdSuffix = ".staging"
+//            signingConfig = signingConfigs.getByName("debug")
+        }
+        create("production") {
+            dimension = "env"
+            applicationIdSuffix = ""
+//            signingConfig = signingConfigs.getByName("release")
         }
     }
 }
@@ -58,10 +78,10 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.6.1"){
         exclude("org.jetbrains.kotlin", "kotlin-stdlib")
     }
-    implementation("androidx.compose.ui:ui:1.4.0-alpha05")
-    implementation("androidx.compose.material:material:1.4.0-alpha05")
-    implementation("androidx.compose.ui:ui-tooling:1.4.0-alpha05")
-    implementation("androidx.compose.runtime:runtime-livedata:1.4.0-alpha04")
+    implementation("androidx.compose.ui:ui:1.5.4")
+    implementation("androidx.compose.material:material:1.5.4")
+    implementation("androidx.compose.ui:ui-tooling:1.5.4")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 
     //timber
     implementation("com.jakewharton.timber:timber:4.7.1")
@@ -72,8 +92,8 @@ dependencies {
 
     //gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("com.google.android.material:material:1.8.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //ImageViewer

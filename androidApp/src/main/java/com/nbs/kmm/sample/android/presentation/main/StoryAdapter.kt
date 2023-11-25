@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.nbs.kmm.sample.android.base.BaseRecyclerViewAdapter
 import com.nbs.kmm.sample.android.databinding.ItemStoryBinding
 import com.nbs.kmm.sample.android.utils.util.setImageUrl
-import com.nbs.kmm.sample.domain.story.model.Story
+import com.nbs.kmm.shared.domain.story.model.Story
 
 class StoryAdapter(
     private val onItemClicked: (Story) -> Unit
