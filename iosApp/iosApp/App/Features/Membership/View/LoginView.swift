@@ -132,7 +132,7 @@ struct LoginView: WrappedView {
         navigator.navigateToStory(window: viewController.view.window)
       },
       onFailed: { error in
-        errorValue = error.localizedDescription
+          errorValue = error.apiError?.errorMessage ?? error.localizedDescription
         print("Error: \(error.localizedDescription)")
       }
     )
