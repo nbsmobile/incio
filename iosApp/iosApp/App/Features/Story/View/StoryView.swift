@@ -19,8 +19,6 @@ struct StoryView: WrappedView {
     self.holder = holder
     self.navigator = navigator
     self._viewModel = StateObject(wrappedValue: viewModel)
-
-    viewModel.getAllStories(storyParam: .init(page: 1, size: 10, isIncludeLocation: false))
   }
 
   func configureNavigationBar(viewController: UIViewController) {
@@ -46,6 +44,9 @@ struct StoryView: WrappedView {
           .font(.headline)
           .foregroundColor(.gray)
       }
+    }
+    .onAppear {
+      viewModel.fetchAllStories(storyParam: .init(page: 1, size: 10, isIncludeLocation: false))
     }
   }
 }

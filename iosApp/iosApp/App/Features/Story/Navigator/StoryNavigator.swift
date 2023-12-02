@@ -10,6 +10,7 @@ import UIKit
 
 protocol StoryNavigator {
   func navigateToStory(window: UIWindow?)
+  func navigateToStory(from viewController: UIViewController)
   func navigateToAddStory(from viewController: UIViewController)
 }
 
@@ -23,6 +24,11 @@ struct DefaultStoryNavigator: StoryNavigator {
   func navigateToStory(window: UIWindow?) {
     let view: StoryView = assembler.resolve()
     window?.rootViewController = UINavigationController(rootViewController: view.viewController)
+  }
+
+  func navigateToStory(from viewController: UIViewController) {
+    let view: StoryView = assembler.resolve()
+    viewController.navigationController?.pushViewController(view.viewController, animated: true)
   }
 
   func navigateToAddStory(from viewController: UIViewController) {

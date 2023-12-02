@@ -25,6 +25,9 @@
 		91000FD6298782C300DD8074 /* RocketLaunchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD5298782C300DD8074 /* RocketLaunchNavigator.swift */; };
 		91000FD8298788E400DD8074 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD7298788E400DD8074 /* DataState.swift */; };
 		91000FDA298789CC00DD8074 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91000FD9298789CC00DD8074 /* ActivityIndicator.swift */; };
+		915050F7298E18B400658ABF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915050F6298E18B400658ABF /* ImagePicker.swift */; };
+		915050F9298E214100658ABF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915050F8298E214100658ABF /* MainView.swift */; };
+		915050FB298E267A00658ABF /* PrefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915050FA298E267A00658ABF /* PrefView.swift */; };
 		91BD2FE2298A163F00EC8A2F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD2FE1298A163F00EC8A2F /* SessionManager.swift */; };
 		9A628B4C298A1F6400A7E0D3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B4B298A1F6400A7E0D3 /* LoginView.swift */; };
 		9A628B4E298A25C300A7E0D3 /* MembershipNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A628B4D298A25C300A7E0D3 /* MembershipNavigator.swift */; };
@@ -62,6 +65,9 @@
 		91000FD5298782C300DD8074 /* RocketLaunchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchNavigator.swift; sourceTree = "<group>"; };
 		91000FD7298788E400DD8074 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		91000FD9298789CC00DD8074 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		915050F6298E18B400658ABF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		915050F8298E214100658ABF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		915050FA298E267A00658ABF /* PrefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefView.swift; sourceTree = "<group>"; };
 		91BD2FE1298A163F00EC8A2F /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		9A628B4B298A1F6400A7E0D3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9A628B4D298A25C300A7E0D3 /* MembershipNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipNavigator.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 				91000FC2298780EE00DD8074 /* LoadingModifier.swift */,
 				91BD2FE1298A163F00EC8A2F /* SessionManager.swift */,
 				91000FC02987808F00DD8074 /* ViewWrapper.swift */,
+				915050F6298E18B400658ABF /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,6 +282,8 @@
 			children = (
 				9A628B4B298A1F6400A7E0D3 /* LoginView.swift */,
 				9A628B51298A620700A7E0D3 /* RegisterView.swift */,
+				915050F8298E214100658ABF /* MainView.swift */,
+				915050FA298E267A00658ABF /* PrefView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +464,7 @@
 			files = (
 				91000FC12987808F00DD8074 /* ViewWrapper.swift in Sources */,
 				9A628B52298A620700A7E0D3 /* RegisterView.swift in Sources */,
+				915050FB298E267A00658ABF /* PrefView.swift in Sources */,
 				9A628B65298B226400A7E0D3 /* CustomWebImage.swift in Sources */,
 				9A628B5A298A747900A7E0D3 /* AddStoryView.swift in Sources */,
 				91000FDA298789CC00DD8074 /* ActivityIndicator.swift in Sources */,
@@ -466,10 +476,12 @@
 				91000FD12987823000DD8074 /* AppDelegate.swift in Sources */,
 				91000FCF2987820900DD8074 /* RocketLaunchViewModel.swift in Sources */,
 				91000FBA29877FE700DD8074 /* View.swift in Sources */,
+				915050F9298E214100658ABF /* MainView.swift in Sources */,
 				9A628B5E298A79A200A7E0D3 /* StoryNavigator.swift in Sources */,
 				9A628B4E298A25C300A7E0D3 /* MembershipNavigator.swift in Sources */,
 				91000FD6298782C300DD8074 /* RocketLaunchNavigator.swift in Sources */,
 				9A628B69298B60C800A7E0D3 /* MembershipViewModel.swift in Sources */,
+				915050F7298E18B400658ABF /* ImagePicker.swift in Sources */,
 				91000FB629877F3100DD8074 /* AppAssembler.swift in Sources */,
 				91000FC82987819300DD8074 /* Koin.swift in Sources */,
 				9A628B67298B27EA00A7E0D3 /* StoryViewModel.swift in Sources */,

@@ -14,7 +14,12 @@ import platform.CoreCrypto.CCHmacAlgorithm
 import platform.CoreCrypto.CC_SHA256_DIGEST_LENGTH
 import platform.CoreCrypto.kCCHmacAlgSHA256
 import platform.Foundation.*
+import kotlinx.cinterop.*
+import platform.Foundation.NSData
+import platform.Foundation.NSMutableData
+import platform.Foundation.appendBytes
 import platform.UIKit.UIDevice
+
 
 class IOSPlatform : Platform {
 
@@ -51,6 +56,19 @@ class IOSPlatform : Platform {
         logging { "HASH IOS $hash" }
         return hash
     }
+
+    fun toByteArray(nsData: NSData): ByteArray {
+        val data: CPointer<ByteVar> = nsData.bytes!!.reinterpret()
+        return ByteArray(nsData.length.toInt()) { index -> data[index] }
+    }
+
+    fun toNSData(byteArray: ByteArray): NSData = NSMutableData().apply {
+        if (byteArray.isEmpty()) return@apply
+        byteArray.usePinned {
+            appendBytes(it.addressOf(0), byteArray.size.toULong())
+        }
+    }
+
 }
 
 @OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
