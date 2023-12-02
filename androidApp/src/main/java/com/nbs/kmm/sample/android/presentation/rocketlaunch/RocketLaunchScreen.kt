@@ -23,7 +23,7 @@ import com.nbs.kmm.sample.android.R
 import com.nbs.kmm.sample.android.utils.ComposableObserver
 import com.nbs.kmm.sample.android.utils.ContextProvider
 import com.nbs.kmm.sample.android.utils.showToast
-import com.nbs.kmm.sample.domain.rocketlaunch.model.RocketLaunch
+import com.nbs.kmm.shared.domain.rocketlaunch.model.RocketLaunch
 import org.koin.androidx.compose.getViewModel
 
 @Composable

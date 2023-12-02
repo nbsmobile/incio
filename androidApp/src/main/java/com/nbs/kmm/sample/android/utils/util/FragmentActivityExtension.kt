@@ -2,7 +2,7 @@ package com.nbs.kmm.sample.android.utils.util
 
 import androidx.fragment.app.FragmentActivity
 import com.nbs.kmm.sample.android.utils.AlertFragment
-import com.nbs.kmm.sample.domain.base.ApiError
+import com.nbs.kmm.shared.domain.base.ApiError
 import java.io.IOException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException

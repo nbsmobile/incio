@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.nbs.kmm.sample.android.base.BaseViewModel
 import com.nbs.kmm.sample.android.utils.data.Resource
 import com.nbs.kmm.sample.android.utils.proceed
-import com.nbs.kmm.sample.domain.membership.MembershipUseCase
-import com.nbs.kmm.sample.domain.membership.model.Login
-import com.nbs.kmm.sample.domain.membership.model.RegisterParam
+import com.nbs.kmm.shared.domain.membership.MembershipUseCase
+import com.nbs.kmm.shared.domain.membership.model.Login
+import com.nbs.kmm.shared.domain.membership.model.RegisterParam
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.launch
 

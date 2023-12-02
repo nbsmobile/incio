@@ -13,7 +13,7 @@ import com.nbs.kmm.sample.android.utils.isValidPassword
 import com.nbs.kmm.sample.android.utils.showToast
 import com.nbs.kmm.sample.android.utils.util.showErrorAlert
 import com.nbs.kmm.sample.android.viewmodel.MembershipViewModel
-import com.nbs.kmm.sample.domain.account.AccountManager
+import com.nbs.kmm.shared.domain.account.AccountManager
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

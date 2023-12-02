@@ -10,8 +10,8 @@ import androidx.compose.runtime.State
 import androidx.lifecycle.MutableLiveData
 import com.nbs.kmm.sample.android.R
 import com.nbs.kmm.sample.android.utils.data.Resource
-import com.nbs.kmm.sample.domain.base.ApiError
-import com.nbs.kmm.sample.domain.base.ErrorCode
+import com.nbs.kmm.shared.domain.base.ApiError
+import com.nbs.kmm.shared.domain.base.ErrorCode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.retryWhen

@@ -7,7 +7,7 @@ import com.nbs.kmm.sample.android.di.featureModule
 import com.nbs.kmm.sample.android.di.rxModule
 import com.nbs.kmm.sample.android.di.utilityModule
 import com.nbs.kmm.sample.android.utils.ContextProvider
-import com.nbs.kmm.sample.base.CoreApplication
+import com.nbs.kmm.shared.base.CoreApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.logger.Level

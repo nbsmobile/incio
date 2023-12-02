@@ -1,7 +1,7 @@
-package com.nbs.kmm.sample
+package com.nbs.kmm.shared
 
 import com.nbs.kmm.sample.cache.IOSDatabaseDriverFactory
-import com.nbs.kmm.sample.utils.logging
+import com.nbs.kmm.shared.utils.logging
 import com.russhwolf.settings.ExperimentalSettingsImplementation
 import com.russhwolf.settings.KeychainSettings
 import com.russhwolf.settings.Settings
@@ -71,7 +71,7 @@ class IOSPlatform : Platform {
 
 }
 
-@OptIn(ExperimentalUnsignedTypes::class)
+@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
 fun NSString.sha256Hmac(algorithm: CCHmacAlgorithm = kCCHmacAlgSHA256, key: String): String {
     val string = this.cStringUsingEncoding(encoding = NSUTF8StringEncoding)
     val stringLength = this.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)

@@ -1,9 +1,10 @@
-package com.nbs.kmm.sample.cache
+package com.nbs.kmm.shared.cache
 
 import android.content.Context
 import android.util.Log
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
+import com.nbs.kmm.sample.cache.AppDatabase
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import com.squareup.sqldelight.db.SqlDriver
 import net.sqlcipher.database.SQLiteDatabase
