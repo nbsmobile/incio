@@ -57,11 +57,13 @@ class IOSPlatform : Platform {
         return hash
     }
 
+    @OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
     fun toByteArray(nsData: NSData): ByteArray {
         val data: CPointer<ByteVar> = nsData.bytes!!.reinterpret()
         return ByteArray(nsData.length.toInt()) { index -> data[index] }
     }
 
+    @OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
     fun toNSData(byteArray: ByteArray): NSData = NSMutableData().apply {
         if (byteArray.isEmpty()) return@apply
         byteArray.usePinned {
